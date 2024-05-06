@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        :root{
+            --primary-color: #f46138;
+        }
+
+        .divider:after,
+        .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+        }
+
+        .h-custom {
+        height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+            height: 100%;
+            }
+        }
+
+        .text-login {
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .btn-login {
+            padding-left: 6rem;
+            padding-right: 6rem;
+
+            background-color: var(--primary-color); 
+            border-color: var(--primary-color); 
+            color: white; 
+
+        }
+
+        .btn-login:hover,
+        .btn-login:focus,
+        .btn-login:active {
+            background-color: var(--primary-color); 
+            border-color: var(--primary-color); 
+            color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+            text-decoration: none;
+        }
+
+        .icon-img {
+            width: 50px;
+        }
+
+        .icon:hover {
+            filter: brightness(90%);
+            cursor: pointer;
+        }
+
+        .form-outline input::placeholder {
+            font-size: 14px; 
+        }
+
+        .form-outline input.form-control:focus {
+            border-color: rgb(27, 150, 245); 
+            box-shadow: none; 
+        }
+
+        .forgot-pass:hover {
+            color: var(--primary-color);
+        }
+
+        
+        /* vị trí thông báo*/
+        .alert {
+            position: fixed;
+            top: 20px; 
+            right: 20px; 
+            z-index: 1000; 
+        }
+
+    </style>
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-6 col-lg-6 col-xl-5 col-sm-6">
+              <img src="/assets/img/Logo.png"
+                class="img-fluid" alt="logo">
+            </div>
+
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+                <div class="text-center m-4 text-login">
+                    <label>Đăng nhập</label>
+                </div>
+                
+              
+              <form class="needs-validation"  novalidate>
+                <!-- Email input -->
+                <div  class="form-outline mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-regular fa-envelope"></i></i></span>
+                        <input type="text" id="email" class="form-control form-control-lg " placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                </div>
+      
+                <!-- Password input -->
+                <div  class="form-outline mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password" class="form-control form-control-lg password" placeholder="Mật khẩu" required>              
+                        <span class="input-group-text bg-transparent">
+                            <i class="far fa-eye-slash" id="togglePassword"></i>
+                        </span> 
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                   
+                </div>
+      
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- Checkbox -->
+                  <div class="form-check mb-0">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                    <label class="form-check-label" for="form2Example3">
+                      Nhớ mật khẩu
+                    </label>
+                  </div>
+                  <a href="#!" class=" forgot-pass">Quên mật khẩu?</a>
+                </div>
+
+                
+                <div class="text-center mt-4 pt-2">
+                    <button href="" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-login">
+                        Đăng nhập
+                    </button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Bạn không có tài khoản? <a href="signup.html"
+                      class="link-danger">Đăng kí</a>
+                    </p>
+                </div>
+
+                
+                <div class="divider d-flex align-items-center my-4">
+                    <p class="text-center fw-bold mx-3 mb-0">Hoặc</p>
+                </div>
+
+                <div class="text-center mt-3 pt-2 mb-3">
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/facebook.png" alt="">
+                    </a>
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/google.png" alt="">
+                    </a>
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/twitter.png" alt="">
+                    </a>
+                    
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script>
+        
+        // //show-hide pass
+        // const togglePassword = document.querySelector("#togglePassword");
+        // const password = document.querySelector(".password");
+
+        // togglePassword.addEventListener("click", function () {
+
+        //     const type = password.getAttribute("type") === "password" ? "text" : "password";
+        //     password.setAttribute("type", type);
+
+        //     if (togglePassword.classList.contains("fa-eye")) {
+        //         togglePassword.classList.remove("fa-eye");
+        //         togglePassword.classList.add("fa-eye-slash");
+        //     } else {
+        //         togglePassword.classList.remove("fa-eye-slash");
+        //         togglePassword.classList.add("fa-eye");
+        //     }
+        // });   
+
+        // //validation
+        // // Example starter JavaScript for disabling form submissions if there are invalid fields
+        // (function () {
+        // 'use strict'
+
+        // // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        // var forms = document.querySelectorAll('.needs-validation')
+
+        // // Loop over them and prevent submission
+        // Array.prototype.slice.call(forms)
+        //     .forEach(function (form) {
+        //     form.addEventListener('submit', function (event) {
+        //         if (!form.checkValidity()) {
+        //         event.preventDefault()
+        //         event.stopPropagation()
+        //         } 
+        //         else {
+               
+        //             var emailInput = document.getElementById('email');
+        //             var passwordInput = document.getElementById('password');
+        //             var email = emailInput.value;
+        //             var pass = passwordInput.value;
+
+        //             //alert(typeof(email))
+
+        //             // Kiểm tra xem email và mật khẩu 
+        //             if (email !== '' && pass !== '') { // Kiểm tra xem email và mật khẩu không rỗng
+        //                 if (email === 'nguoidung@gmail.com' && pass === 'abc') {
+
+        //                     event.preventDefault(); 
+                            
+        //                     var successMessage = document.createElement('div');
+        //                     successMessage.classList.add('alert', 'alert-success');
+        //                     successMessage.textContent = 'Đăng nhập thành công!';
+        //                     form.parentNode.insertBefore(successMessage, form.nextSibling);
+
+        //                     setTimeout(function () {
+        //                         window.location.href = 'trangchu.html';
+        //                     }, 2000);
+                            
+        //                 } else if (email === 'nguoiquantri@gmail.com' && pass === 'abc') {
+                            
+        //                     event.preventDefault(); 
+                            
+        //                     var successMessage = document.createElement('div');
+        //                     successMessage.classList.add('alert', 'alert-success');
+        //                     successMessage.textContent = 'Đăng nhập thành công!';
+        //                     form.parentNode.insertBefore(successMessage, form.nextSibling);
+
+        //                     setTimeout(function () {
+        //                         window.location.href = 'quantri.html';
+        //                     }, 2000);
+        //                 } else {
+        //                     event.preventDefault(); 
+
+        //                     // Hiển thị thông báo lỗi
+        //                     var errorMessage = document.createElement('div');
+        //                     errorMessage.classList.add('alert', 'alert-danger');
+        //                     errorMessage.textContent = 'Tên tài khoản hoặc mật khẩu không chính xác!';
+        //                     form.parentNode.insertBefore(errorMessage, form.nextSibling);
+        //                     //document.body.appendChild(errorMessage);
+
+        //                     // Tự động ẩn thông báo sau 2 giây
+        //                     setTimeout(function () {
+        //                         errorMessage.style.display = 'none';
+        //                     }, 3000);
+        //                 }
+        //             } 
+        //         }
+
+        //         form.classList.add('was-validated')
+        //     }, false)
+        //     })
+        // })()
+
+        $(document).ready(function () {
+            // Show-hide pass
+            $("#togglePassword").click(function () {
+                var password = $(".password");
+                var type = password.attr("type") === "password" ? "text" : "password";
+                password.attr("type", type);
+
+                if ($("#togglePassword").hasClass("fa-eye")) {
+                    $("#togglePassword").removeClass("fa-eye").addClass("fa-eye-slash");
+                } else {
+                    $("#togglePassword").removeClass("fa-eye-slash").addClass("fa-eye");
+                }
+            });
+
+            
+
+            // Validation
+            $(".needs-validation").submit(function (event) {
+                var form = $(this)[0];
+
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    var email = $('#email').val();
+                    var pass = $('#password').val();
+
+                    if (email !== '' && pass !== '') {
+                        if (email === 'nguoidung@gmail.com' && pass === 'abc') {
+                            event.preventDefault();
+
+                            var successMessage = $('<div class="alert alert-success">Đăng nhập thành công!</div>');
+                            $(form).parent().find('form').after(successMessage);
+
+                            setTimeout(function () {
+                                window.location.href = 'index.html';
+                            }, 2000);
+                        } else if (email === 'nguoiquantri@gmail.com' && pass === 'abc') {
+                            event.preventDefault();
+
+                            var successMessage = $('<div class="alert alert-success">Đăng nhập thành công!</div>');
+                            $(form).parent().find('form').after(successMessage);
+
+                            setTimeout(function () {
+                                window.location.href = 'quantri.html';
+                            }, 2000);
+                        } else {
+                            event.preventDefault();
+
+                            var errorMessage = $('<div class="alert alert-danger">Tên tài khoản hoặc mật khẩu không chính xác!</div>');
+                            $(form).parent().find('form').after(errorMessage);
+
+                            setTimeout(function () {
+                                errorMessage.hide();
+                            }, 3000);
+                        }
+                    }
+                }
+
+                form.classList.add('was-validated');
+            });
+        });
+
+    </script>
+</body>
+</html>

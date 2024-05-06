@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        :root{
+            --primary-color: #f46138;
+        }
+
+        .divider:after,
+        .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+        }
+
+        .h-custom {
+        height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+            height: 100%;
+            }
+        }
+
+        .text-login {
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .btn-signup {
+            padding-left: 6rem;
+            padding-right: 6rem;
+
+            background-color: var(--primary-color); 
+            border-color: var(--primary-color); 
+            color: white; 
+
+        }
+
+        .btn-signup:hover,
+        .btn-signup:focus,
+        .btn-signup:active {
+            background-color: var(--primary-color); 
+            border-color: var(--primary-color); 
+            color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+            text-decoration: none;
+        }
+
+        .icon-img {
+            width: 50px;
+        }
+
+        .icon:hover {
+            filter: brightness(90%);
+            cursor: pointer;
+        }
+
+        .form-outline input::placeholder {
+            font-size: 14px; 
+        }
+
+        .form-outline input.form-control:focus {
+            border-color: rgb(27, 150, 245); 
+            box-shadow: none; 
+        }
+
+        /* vị trí thông báo*/
+        .alert {
+            width: 300px;
+            position: fixed;
+            top: 20px; 
+            right: 20px; 
+            z-index: 1000; 
+            
+        }
+
+    </style>
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-6 col-lg-6 col-xl-5 col-sm-6">
+              <img src="/assets/img/Logo.png"
+                class="img-fluid" alt="logo">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+                <div class="text-center m-4 text-login">
+                    <label>Đăng kí</label>
+                </div>
+                
+              
+              <form class="needs-validation"  novalidate>
+               <!-- User input -->
+               <div data-mdb-input-init class="form-outline mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="name" class="form-control" placeholder="Tên người dùng" required>
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                        <input type="text" id="email" class="form-control" placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                </div>
+      
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password" class="form-control password" placeholder="Mật khẩu" required>
+                        <span class="input-group-text bg-transparent">
+                            <i class="far fa-eye-slash" id="togglePassword"></i>
+                        </span> 
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                </div>
+
+                <!--Forgot password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password2" class="form-control password" placeholder="Nhập lại mật khẩu" required>
+                        <span class="input-group-text bg-transparent">
+                            <i class="far fa-eye-slash" id="togglePassword2"></i>
+                        </span> 
+                        <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 pt-2">
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-signup">Đăng kí</button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Bạn đã có tài khoản? <a href="login.html"
+                      class="link-danger">Đăng nhập</a>
+                    </p>
+                </div>
+
+                
+                <div class="divider d-flex align-items-center my-4">
+                    <p class="text-center fw-bold mx-3 mb-0">Hoặc</p>
+                </div>
+
+                <div class="text-center mt-3 pt-2 mb-3">
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/facebook.png" alt="">
+                    </a>
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/google.png" alt="">
+                    </a>
+                    <a href="" class="icon m-2">
+                        <img class="icon-img" src="/assets/img/twitter.png" alt="">
+                    </a>
+                    
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script src="/assets/js/signup.js"></script>
+</body>
+</html>
