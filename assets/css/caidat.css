@@ -10,14 +10,14 @@
 }
 
 .caidat-left {
-    border: 1px solid #f2ac6f;
+    border: 1px solid #ccc;
     border-radius: 6px;
     height: auto;
     background: #fff;
 }
 
 .caidat-right {
-    border: 1px solid #f2ac6f;
+    border: 1px solid #ccc;
     border-radius: 6px;
     height: 700px;
     background: #fff;
@@ -37,7 +37,7 @@
     list-style-type: none;
     width: 100%;
     padding: 20px 10px;
-    border-bottom: 1px solid #f9cfaa;
+    border-bottom: 1px solid #ccc;
 }
 
 .caidat-left li:hover {
