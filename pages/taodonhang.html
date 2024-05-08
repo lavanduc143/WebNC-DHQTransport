@@ -25,10 +25,12 @@
   <link rel="stylesheet" href="/assets/vendor/quill/quill.bubble.css">
   <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
   <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
+  <link rel="stylesheet" href="/assets/vendor/">
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="/assets/css/taodon.css">
+  <script src="/assets/js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -209,14 +211,134 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active" id="link1"><a href="#">Tạo đơn lẻ</a></li>
+          <li class="breadcrumb-item" id="link2"><a href="#">Nhập excel</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
+    
+    <div id="content1" class="content">
+      <!-- Nội dung cho Tạo đơn lẻ -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card nguoigui">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                  <div class="float-left">
+                    <i class="bi bi-person"></i>
+                    <span class="vicc-title">Người gửi</span>
+                  </div>
+                  <div class="float-right buu-cuc">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="sendAtPostOffice">
+                      <label class="form-check-label" for="sendAtPostOffice">
+                        Gửi tại bưu cục
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="card-body">
+              <div class="form-group">
+                <select class="form-control" id="selectGroupAddress">
+                  <option value="">Chọn thông tin người gửi</option>
+                  <option value="17399946">Phạm Văn Quyết - 133 Lai Xá, Đ.Lai Xá, XÃ KIM CHUNG, HUYỆN HOÀI ĐỨC... - 0898701629</option>
+                  <!-- Thêm các option khác nếu cần -->
+                </select>
+                <div class="invalid-feedback">Người gửi không được để trống</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="pickupTime">Thời gian hẹn lấy:</label>
+                <input type="datetime-local" class="form-control" id="pickupTime" required>
+              </div>
+    
+            </div>
+          </div>
+          <div class="card nguoinhan">
+            <div class="card-header">
+              <div class="d-flex justify-content-between">
+                <div class="float-left">
+                  <i class="bi bi-person"></i>
+                  <span class="vicc-title">Người nhận</span>
+                </div>
+                <div class="float-right buu-cuc">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sendAtPostOffice">
+                    <label class="form-check-label" for="sendAtPostOffice">
+                      Nhận tại bưu cục
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="receiverName" class="required-field">Họ và tên:</label>
+                <input type="text" class="form-control" id="receiverName" required>
+                <div id="errorMessage1" class="text-danger"></div>
+              </div>
+              <div class="form-group">
+                <label for="receiverPhoneNumber" class="required-field">Số điện thoại:</label>
+                <input type="tel" class="form-control" id="receiverPhoneNumber" required>
+                <div id="errorMessage2" class="text-danger"></div>
+              </div>
+              <div class="form-group">
+                <label for="receiverAddress" class="required-field">Địa chỉ:</label>
+                <input type="text" class="form-control" id="receiverAddress" required>
+                <div id="errorMessage3" class="text-danger"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" id="province" required>
+                  <option value="">Chọn tỉnh/thành phố</option>
+                  <option value="Hà Nội">Hà Nội</option>
+                  <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <!-- Thêm các tỉnh/thành phố khác nếu cần -->
+                </select>
+                <div id="errorMessage4" class="text-danger"></div>
+                <div class="invalid-feedback">Vui lòng chọn tỉnh/thành phố</div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" id="district" required>
+                  <option value="">Chọn quận/huyện</option>
+                  <option value="Quận Ba Đình">Quận Ba Đình</option>
+                  <option value="Quận Hoàn Kiếm">Quận Hoàn Kiếm</option>
+                  <option value="Quận Hai Bà Trưng">Quận Hai Bà Trưng</option>
+                  <!-- Thêm các quận/huyện khác nếu cần -->
+                </select>
+                <div id="errorMessage5" class="text-danger"></div>
+                <div class="invalid-feedback">Vui lòng chọn quận/huyện</div>
+              </div>
+              
+              <div class="form-group">
+                <select class="form-control" id="ward" required>
+                  <option value="">Chọn xã/phường</option>
+                  <option value="Xã Cổ Nhuế">Xã Cổ Nhuế</option>
+                  <option value="Phường Lê Đại Hành">Phường Lê Đại Hành</option>
+                  <option value="Xã Hòa Cường Nam">Xã Hòa Cường Nam</option>
+                  <!-- Thêm các xã/phường khác nếu cần -->
+                </select>
+                <div id="errorMessage6" class="text-danger"></div>
+                <div class="invalid-feedback">Vui lòng chọn xã/phường</div>
+              </div>
+              
+              <button type="button" id="confirmBtn" class="btn btn-primary">Xác nhận</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="content2" class="content">
+      <!-- Nội dung cho Nhập excel -->
+      <p>Đây là nội dung cho Nhập excel.</p>
+    </div>
+    
+    
   </main>
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -230,5 +352,6 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/taodon.js"></script>
 </body>
 </html>
