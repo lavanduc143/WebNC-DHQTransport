@@ -26,8 +26,12 @@
   <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
   <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
 
+  <!-- //jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/caidat.css">
 
 
 </head>
@@ -207,17 +211,175 @@
     </ul>
 
   </aside><!-- End Sidebar-->
-  <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+  <main id="main" class="main">
+    <div class="caidat">
+      <h1>Cấu hình tài khoản</h1>
+      <div class="row">
+        <div class="col-lg-2 px-2 pt-4">
+          <div class="col-lg-12">
+            <div class="caidat-left">
+              <ul>
+                <li class="infoLink"><i class="bi bi-person "></i> Thông tin tài khoản</li>
+                <li class="passwordLink"><i class="bi bi-gear "></i> Đổi mật khẩu</li>
+                <li class="more"><i class="bi bi-wallet2"></i> Tài khoản thanh toán</li>
+                <li class="more"><i class="bi bi-cash-coin"></i> Quản lí Token</li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="col-lg-10 px-2 pt-4">
+            <div class="col-lg-12">
+              <div class="caidat-right" id="infoForm">
+                <form  action="" class="mx-3 mt-3 form-right needs-validation" novalidate>
+
+                  <h3 class="caidat-right-header">THÔNG TIN TÀI KHOẢN</h3>
+                  <div class="mb-3 mt-3">
+                    <label for="">Tên tài khoản</label>
+                    <input id="name" type="text" class="form-control" placeholder="Nhập tên" required>
+                    <div class="invalid-feedback">
+                      Vui lòng nhập đầy đủ thông tin.
+                  </div>
+                  </div>
+                  <div class="mb-3 mt-3">
+                    <label for="">Email</label>
+                    <div class="input-group">
+                      <input type="email" class="form-control" placeholder="lavanduc143@gmail.com" disabled>
+                      <button class="btn btn-primary btn-change" type="button">Thay đổi</button> 
+                    </div>
+                  </div>
+                  <div class="mb-3 mt-3">
+                    <label for="">Số điện thoại</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="0123456789" disabled>
+                      <button class="btn btn-primary btn-change" type="button">Thay đổi</button> 
+                    </div>
+                  </div>
+
+                  <div class="mb-3 mt-3">
+                    <label for="">Ngày sinh</label>
+                    <div class="input-group">
+                      <input type="date" class="form-control" required> 
+                    </div>
+                  </div>
+
+                  <div class="mb-3 mt-3">
+                    <label for="">Chứng minh thư/CCCD</label>
+                    <div class="input-group">
+                      <input id="cmt" type="text" class="form-control" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Vui lòng nhập đầy đủ thông tin.
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 mt-3">
+                    <label for="">Địa chỉ thường trú</label>
+                    <div class="input-group">
+                      <input id="diachi" type="text" class="form-control" placeholder="Nhập địa chỉ" required>
+                      <div class="invalid-feedback">
+                        Vui lòng nhập đầy đủ thông tin.
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 mt-3">
+                    <div class="col-lg-4">
+                      <label for="">Tỉnh/Thành phố</label>
+                      <div class="input-group">
+                        <select class="form-select" id="sel1" name="sellist1">
+                          <option>Hà Nội</option>
+                          <option>Ninh Bình</option>
+                          <option>Nghệ An</option>
+                          <option>Nam Định</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <label for="">Quận huyện</label>
+                      <div class="input-group">
+                        <div class="input-group">
+                          <input id="huyen" type="text" class="form-control" placeholder="" required>
+                          <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <label for="">Phường xã</label>
+                      <div class="input-group">
+                        <div class="input-group">
+                          <input id="xa" type="text" class="form-control" placeholder="" required>
+                          <div class="invalid-feedback">
+                            Vui lòng nhập đầy đủ thông tin.
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 mt-4">
+                    <button class="btn btn-outline-success saveButton">Lưu</button>
+                  </div>
+
+                </form>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="verificationModal" tabindex="-1" aria-labelledby="verificationModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="verificationModalLabel">Chọn phương thức xác minh</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Vui lòng chọn phương thức xác minh:</p>
+                        <button type="button" class="btn btn-primary" id="smsButton">SMS</button>
+                        <button type="button" class="btn btn-primary" id="emailButton">Email</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="caidat-right" id="passwordForm" style="display: none; height: 360px;">
+                <!-- Form đổi mật khẩu -->
+                <form action="" class="mx-3 mt-3 form-right needs-validation2" novalidate>
+                    <h3 class="caidat-right-header">ĐỔI MẬT KHẨU</h3>
+                    <div class="mb-3 mt-3">
+                      <label for="">Mật khẩu cũ</label>
+                      <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" required>
+                      <div class="invalid-feedback">
+                        Vui lòng nhập đầy đủ thông tin.
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="">Mật khẩu mới</label>
+                      <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" required>
+                      <div class="invalid-feedback">
+                        Vui lòng nhập đầy đủ thông tin.
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="">Nhập lại mật khẩu</label>
+                      <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" required>
+                      <div class="invalid-feedback">
+                        Vui lòng nhập đầy đủ thông tin.
+                    </div>
+                    <div class="mb-3 mt-4">
+                        <button class="btn btn-outline-success saveButton">Lưu</button>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
   </main>
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -229,7 +391,121 @@
   <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
+
+  <script>
+    $(document).ready(function(){
+      //đổi mật khẩu form
+      $(".infoLink").click(function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+            $("#infoForm").show(); // Hiển thị form thông tin tài khoản
+            $("#passwordForm").hide(); // Ẩn form đổi mật khẩu
+        });
+
+        // Bắt sự kiện khi người dùng nhấp vào li "Đổi mật khẩu"
+        $(".passwordLink").click(function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+            $("#infoForm").hide(); // Ẩn form thông tin tài khoản
+            $("#passwordForm").show(); // Hiển thị form đổi mật khẩu
+        });
+
+
+      //check mail
+      $(".btn-change").click(function() {
+        var method = $(this).data("method");
+        $('#verificationModal').modal('show');
+        
+        $("#smsButton").click(function() {
+          // Thực hiện hành động cho phương thức SMS
+          alert('Xác minh thông tin qua SMS');
+          $('#verificationModal').modal('hide');
+        });
+        
+        $("#emailButton").click(function() {
+          // Thực hiện hành động cho phương thức Email
+          alert('Xác minh thông tin qua Email');
+          $('#verificationModal').modal('hide');
+        });
+      });
+
+
+      //check dlieu
+      $(".needs-validation").submit(function (event) {
+                var form = $(this)[0];
+
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    var ten = $('#name').val();
+                    var cmt = $('#cmt').val();
+                    var diachi = $('#diachi').val();
+                    var huyen = $('#huyen').val();
+                    var xa = $('#xa').val();
+                    var pass = $('#password').val();
+
+                    if (ten !== '' && cmt !== ''&& diachi !== ''&& huyen !== ''&& xa !== '') {
+                       
+                            event.preventDefault();
+
+                            var successMessage = $('<div class="alert alert-success">Thay đổi thành công !</div>');
+                            $(form).parent().find('form').after(successMessage);
+
+                    }           
+
+                    $(document).on('click', function(event) {
+                      if (!$(event.target).closest('.alert').length) {
+                          successMessage.fadeOut('fast', function() {
+                              $(this).remove();
+                       });
+                      }
+                    })
+                }
+
+                form.classList.add('was-validated');
+        });
+
+        //ktra dl thay đổi mk
+        $(".needs-validation2").submit(function (event) {
+                var form = $(this)[0];
+
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    var pass = $('#password').val();
+
+                    if (pass !== '') {
+                       
+                       event.preventDefault();
+
+                       var successMessage = $('<div class="alert alert-success">Thay đổi thành công !</div>');
+                       $(form).parent().find('form').after(successMessage);
+
+                    }
+                    $(document).on('click', function(event) {
+                      if (!$(event.target).closest('.alert').length) {
+                          successMessage.fadeOut('fast', function() {
+                              $(this).remove();
+                    });
+                  }
+                  })
+                }
+
+              form.classList.add('was-validated');
+      });
+
+      //more option
+      $('.more').click(function() {
+        alert("Chức năng đang được cập nhật")
+      })
+    
+   });
+   
+ </script>
+
+
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

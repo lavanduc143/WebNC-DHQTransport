@@ -1,0 +1,56 @@
+:root{
+    --primary-color: #f46138;
+}
+
+
+.caidat h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.caidat-left {
+    border: 1px solid #f2ac6f;
+    border-radius: 6px;
+    height: auto;
+    background: #fff;
+}
+
+.caidat-right {
+    border: 1px solid #f2ac6f;
+    border-radius: 6px;
+    height: 700px;
+    background: #fff;
+}
+
+@media(max-width: 1024px) {
+    .caidat-right {
+        height: 800px;
+    }
+}
+
+.caidat-left ul {
+    padding: 0;
+}
+
+.caidat-left li {
+    list-style-type: none;
+    width: 100%;
+    padding: 20px 10px;
+    border-bottom: 1px solid #f9cfaa;
+}
+
+.caidat-left li:hover {
+    color: var(--primary-color);
+    background-color: #fbf3f1;
+    cursor: pointer;
+}
+
+.caidat-right-header {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.form-right label {
+    font-weight: 600;
+}
