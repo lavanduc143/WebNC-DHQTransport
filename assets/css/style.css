@@ -362,9 +362,10 @@
     background-color: #fff;
     padding-left: 20px;
     /* Toggle Sidebar Button */
-    /* Search Bar */
+    
   }
   
+  /* Search Bar */
   .header .toggle-sidebar-btn {
     font-size: 32px;
     padding-left: 10px;
@@ -377,6 +378,7 @@
     min-width: 500px;
     padding: 0 20px;
     margin: auto;
+    
   }
   
   @media (max-width: 992px) {

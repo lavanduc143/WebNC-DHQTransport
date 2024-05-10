@@ -11,6 +11,7 @@
 
 .caidat-left {
     border: 1px solid #ccc;
+    border-bottom: none;
     border-radius: 6px;
     height: auto;
     background: #fff;

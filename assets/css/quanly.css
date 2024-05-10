@@ -1,0 +1,82 @@
+:root{
+    --primary-color: #f46138;
+}
+
+.main h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.quanly {
+    background-color: white;
+    height: 100%;
+}
+
+.quanly-menu-items {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, .03);
+    border: 1px solid #ccc;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.quanly-menu-items i {
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+.item1:hover {
+    color: rgb(54, 117, 252);
+}
+
+.item2:hover {
+    color: green;
+}
+
+.item3:hover {
+    color: orange;
+}
+
+.item4:hover {
+    color: rgb(252, 54, 54);
+}
+
+.quanly-menu-items:hover {
+    background-color: #f9f7f7;
+    border-bottom: 3px solid #f46138;
+    cursor: pointer;
+}
+
+.quanly-submenu {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quanly-search {
+    width: 400px;
+}
+
+.quanly-table {
+    overflow-x: auto;
+}
+
+@media(max-width: 599px) {
+    .quanly-submenu {
+        flex-direction: column;
+        
+    } 
+
+    .btnExport {
+        margin-bottom: 10px;
+    }
+
+    .quanly-search {
+        width: auto;
+    }
+}
+
+.form-label {
+    font-weight: 600;
+}
