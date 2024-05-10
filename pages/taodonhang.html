@@ -213,8 +213,8 @@
     <div class="pagetitle">
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" id="link1"><a href="#">Tạo đơn lẻ</a></li>
-          <li class="breadcrumb-item" id="link2"><a href="#">Nhập excel</a></li>
+          <li class="breadcrumb-item active fw-bold" id="link1"><a href="#">TẠO ĐƠN LẺ</a></li>
+          <li class="breadcrumb-item fw-bold" id="link2"><a href="#">NHẬP EXCEL</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -228,7 +228,7 @@
                 <div class="d-flex justify-content-between">
                   <div class="float-left">
                     <i class="bi bi-person"></i>
-                    <span class="vicc-title">Người gửi</span>
+                    <span class="vicc-title fw-bold">NGƯỜI GỬI</span>
                   </div>
                   <div class="float-right buu-cuc">
                     <div class="form-check">
@@ -262,7 +262,7 @@
               <div class="d-flex justify-content-between">
                 <div class="float-left">
                   <i class="bi bi-person"></i>
-                  <span class="vicc-title">Người nhận</span>
+                  <span class="vicc-title fw-bold">NGƯỜI NHẬN</span>
                 </div>
                 <div class="float-right buu-cuc">
                   <div class="form-check">
@@ -325,10 +325,176 @@
                 <div class="invalid-feedback">Vui lòng chọn xã/phường</div>
               </div>
               
-              <button type="button" id="confirmBtn" class="btn btn-primary">Xác nhận</button>
+
               
             </div>
           </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card thongtin">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                  <div class="float-left">
+                    <i class="bi bi-box"></i>
+                    <span class="vicc-title fw-bold">THÔNG TIN HÀNG HÓA</span>
+                  </div>
+                </div>
+              </div>
+            <div class="card-body">
+              <div class="row">
+                <span class="vicc-title fw-bold">LOẠI HÀNG HÓA</span>
+                  <div class="d-block chonloai">
+                    <div class="form-check mt-3 col-sm-6">
+                      <input type="checkbox" class="form-check-input" id="buukien" name="checkboxloai" checked>
+                      <label class="form-check-label" for="buukien">Bưu kiện</label>
+                    </div>
+                    <div class="form-check mt-3 col-sm-6">
+                      <input type="checkbox" class="form-check-input" id="tailieu" name="checkboxloai">
+                      <label class="form-check-label" for="tailieu">Tài liệu</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col border-top mb-4 mt-3">
+                </div>
+              </div>
+              <div class="row">
+                <div class="thongtinhang col ">
+                  <div class="hang1 d-block mb-3">
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <label for="receiverName" class="required-field">Tên hàng 1</label>
+                      </div>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control " id="Tenhang" required>
+                        <div id="errorMessage7" class="text-danger"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="soluong" class="required-field">Số lượng</label>
+                      <input type="text" class="form-control " id="soluong" required>
+                      <div id="errorMessage8" class="text-danger"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="trongluong" class="required-field">Trọng lượng(g)</label>
+                      <input type="text" class="form-control " id="trongluong" required>
+                      <div id="errorMessage9" class="text-danger"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="giatri" class="required-field">Giá trị(VND)</label>
+                      <input type="text" class="form-control " id="giatri" required>
+                      <div id="errorMessage10" class="text-danger"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col border-top mb-4 mt-3">
+                </div>
+              </div>
+              <div class="row ">
+                <div class=" d-flex align-items-center justify-content-center">
+                  <button class="btnthem rounded-top rounded-bottom">Thêm hàng hóa</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col border-top mb-4 mt-3">
+                </div>
+              </div>
+              <div class="row">
+                <span class="vicc-title fw-bold">TÍNH CHẤT HÀNG HÓA ĐẶC BIỆT</span>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="gtcao" name="checkboxtc" >
+                  <label class="form-check-label" for="gtcao">Giá trị cao</label>
+                </div>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="devo" name="checkboxtc" >
+                  <label class="form-check-label" for="devo">Dễ vỡ</label>
+                </div>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="nguyen" name="checkboxtc" >
+                  <label class="form-check-label" for="nguyen">Nguyên khối</label>
+                </div>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="long" name="checkboxtc" >
+                  <label class="form-check-label" for="long">Chất lỏng</label>
+                </div>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="pin" name="checkboxtc" >
+                  <label class="form-check-label" for="pin">Từ tính, pin</label>
+                </div>
+                <div class="form-check mt-3 col-md-4 col-sm-3">
+                  <input type="checkbox" class="form-check-input" id="lanh" name="checkboxtc" >
+                  <label class="form-check-label" for="lanh">Hàng lạnh</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col border-top mb-4 mt-3">
+                </div>
+              </div>
+              <div class="row">
+                <label for="kichthuoc" class="required-field">Kích thước</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control " id="kichthuoc" placeholder="Dài(cm)" required>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control " id="kichthuoc" placeholder="Rộng(cm)" required>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control " id="kichthuoc" placeholder="Cao(cm)" required>
+                </div>
+                <div id="errorMessage11" class="text-danger"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="row">
+              <div class="col-md-6 mt-3 mb-4 d-block fl">
+                <span class="vicc-title fw-bold p-3">TIỀN THU HỘ</span>
+                <br>
+                <a href="" class="cod p-3">Hình thức thanh toán tiền COD</a>
+                <input type="text" class="form-control p-3" id="kichthuoc" placeholder="0 đ" required>
+                <br>
+                <span class="vicc-title fw-bold p-3">GHI CHÚ</span>
+                <input type="text" class="form-control p-3" id="kichthuoc" placeholder="Nhập ghi chú" required>
+              </div>
+              <div class="col-md-6 mt-3 mb-4">
+                <span class="vicc-title fw-bold">NGƯỜI TRẢ CƯỚC</span>
+                  <div class="d-block chonloai">
+                    <div class="form-check mt-3 col-sm-6">
+                      <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadio1">Người gửi</label>
+                    </div>
+                    <div class="form-check mt-3 col-sm-6 ">
+                      <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio2" value="option2">
+                      <label class="form-check-label" for="exampleRadio2">Người nhận</label>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 boder-cuoi">
+          <p>Tổng cước: </p>
+        </div>
+        <div class="col-md-3 boder-cuoi">
+          <p>Tiền thu hộ:</p>
+        </div> 
+        <div class="col-md-3 boder-cuoi">
+          <p>Thời gian dự kiến: </p>
+        </div>
+        <div class="col-md-3 boder-cuoi d-flex">
+          <div class=" d-flex align-items-center justify-content-center">
+            <button id="confirmBtn" class="btnthem rounded-top rounded-bottom">Gửi ngay</button>
+          </div>
+          <div class=" d-flex align-items-center justify-content-center">
+            <button id="" class="luunhap rounded-top rounded-bottom">Lưu nháp</button>
+          </div>
+        </div>
         </div>
       </div>
     </div>

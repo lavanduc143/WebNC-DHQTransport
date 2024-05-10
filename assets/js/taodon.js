@@ -86,6 +86,38 @@ $(document).ready(function(){
             } else {
                 $("#errorMessage6").text("");
             }
+            //kiểm tra tên hàng
+            if ($("#Tenhang").val() === "") {
+                $("#errorMessage7").text("Vui lòng điền tên hàng");
+                isValid = false;
+            } else {
+                $("#errorMessage7").text("");
+            }
+            if ($("#soluong").val() === "") {
+                $("#errorMessage8").text("Điền số lượng");
+                isValid = false;
+            } else {
+                $("#errorMessage8").text("");
+            }
+            if ($("#trongluong").val() === "") {
+                $("#errorMessage9").text("Điền trọng lượng");
+                isValid = false;
+            } else {
+                $("#errorMessage9").text("");
+            }
+            if ($("#giatri").val() === "") {
+                $("#errorMessage10").text("Điền giá trị");
+                isValid = false;
+            } else {
+                $("#errorMessage10").text("");
+            }
+            if ($("#kichthuoc").val() === "") {
+                $("#errorMessage11").text("Nhập kích thước");
+                isValid = false;
+            } else {
+                $("#errorMessage11").text("");
+            }
+            
     
             // Nếu dữ liệu hợp lệ, thực hiện hành động mong muốn ở đây
             if (isValid) {
@@ -93,6 +125,25 @@ $(document).ready(function(){
                 alert("Dữ liệu hợp lệ, tiến hành xác nhận...");
             }
         });
+    });
+    // Xử lý sự kiện khi checkbox thay đổi trạng thái
+    $('input[type="checkbox"]').change(function(){
+        // Lấy tất cả các checkbox
+        var checkboxes = $('input[name="checkboxloai"]');
+        // Kiểm tra nếu checkbox đang xem xét đã được chọn
+        if(this.checked) {
+        // Loại bỏ trạng thái chọn của các checkbox khác
+        checkboxes.not(this).prop('checked', false);
+        }
+    });
+    $('input[type="radio"]').change(function(){
+        // Lấy tất cả các checkbox
+        var checkboxes = $('input[name="exampleRadio"]');
+        // Kiểm tra nếu checkbox đang xem xét đã được chọn
+        if(this.checked) {
+        // Loại bỏ trạng thái chọn của các checkbox khác
+        checkboxes.not(this).prop('checked', false);
+        }
     });
 });
   

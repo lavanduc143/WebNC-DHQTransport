@@ -42,7 +42,9 @@
     border: 1px solid rgba(0, 0, 0, .03);
 }
   .card-header {
-    background-color:rgba(0, 0, 0, .03);
+    background-color:#FFFFCC;
+    color: #111111;
+    margin-bottom: 20px;
     
   }
   .required-field::after {
@@ -52,3 +54,31 @@
   .form-group {
     margin-bottom: 20px; /* Khoảng cách dưới giữa các hộp chọn */
   }
+ .btnthem{
+  color: #f46138;
+  border: 1px solid #f46138 ;
+  background-color: #fff;
+  height: 40px;
+}
+.btnthem:hover{
+  background-color: #f46138;
+  color: #fff;
+}
+.luunhap{
+  background-color:#899bbd;
+  color: #fff;
+  height: 40px;
+  margin-left: 20px;
+}
+.cod{
+  font-size: 12px;
+}
+.boder-cuoi{
+  border: 1px solid #ced4da;
+  height: 70px;
+  padding-top: 10px;
+  background-color:#FFFFCC;
+}
+.boder-cuoi p{
+  padding-top: 10px;
+}
