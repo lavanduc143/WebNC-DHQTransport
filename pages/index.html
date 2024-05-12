@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/quill/quill.bubble.css">
   <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
   <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
@@ -207,16 +208,86 @@
 
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
+    <div class="row">
+      <div class="col-6">
+        <h3 class="title">Xin chào <strong>Phạm Văn Quyết</strong></h3>
+      </div>
+      <div class="col-6 w-50">
+        <div class="input-group w-50">
+          <span class="input-group-text" id="inputGroupPrepend2">
+            <i class="fa-solid fa-calendar-days"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            id="datetime"
+            name="datetime"
+            aria-describedby="inputGroupPrepend2"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between">
+            <img src="/assets/img/business-and-finance.svg" />
+            <div class="text-right">
+              <div class="title">Đã trả tiền</div>
+              <h4 class="bold text-end">3</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between">
+            <img src="/assets/img/time-and-date.svg" />
+            <div class="text-right">
+              <div class="title">Chờ trả tiền</div>
+              <h4 class="bold text-end">3</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between">
+            <img src="/assets/img/summary.svg" />
+            <div class="text-right">
+              <div class="title">Chưa đối soát</div>
+              <h4 class="bold text-end">3đ</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+    <div class="row mt-3">
+      <div class="col-8">
+        <div class="card form-group">
+          <div class="card-header">
+            <img src="/assets/img/thongkedonhang.svg" />
+            <span>Thống kê đơn hàng</span>
+          </div>
+          <div class="card-body">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card form-group">
+          <div class="card-header">
+            <img src="/assets/img/top10.svg" />
+            <span>Top 10 sản lượng</span>
+          </div>
+          <div class="card-body">
+            <canvas id="tron"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
 
@@ -233,5 +304,78 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script>
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "bubble",
+      data: {
+        datasets: [
+          {
+            label: "Giao thành công",
+            data: [
+              {
+                x: 1,
+                y: 1,
+                r: 1,
+              },
+              {
+                x: 30,
+                y: 1,
+                r: 5,
+              },
+            ],
+            backgroundColor: "rgb(255, 99, 132)",
+          },
+          {
+            label: "Đã hoàn",
+            data: [
+              {
+                x: 10,
+                y: 5,
+                r: 3,
+              },
+              {
+                x: 20,
+                y: 3,
+                r: 4,
+              },
+            ],
+            backgroundColor: "rgb(54, 162, 235)",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  </script>
+
+  <script>
+    const ctxs = document.getElementById("tron");
+
+    new Chart(ctxs, {
+      type: "doughnut",
+      data: {
+        labels: ["Red", "Blue", "Yellow"],
+        datasets: [
+          {
+            label: "My First Dataset",
+            data: [300, 50, 100],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+    });
+  </script>
 </body>
 </html>

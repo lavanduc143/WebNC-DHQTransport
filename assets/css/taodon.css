@@ -1,84 +1,99 @@
 /* Breadcrumbs */
 .breadcrumb {
-    font-size: 20px;
-    font-family: "Nunito", sans-serif;
-    color: #f46138;
-    font-weight: 600;
-  }
-  
-  .breadcrumb a {
-    color: #899bbd;
-    transition: 0.3s;
-  }
-  .breadcrumb a:hover{
-    color: #f46138;
-    text-decoration: underline;
-  }
-
-  .breadcrumb a:hover {
-    color: #f46138;
-  }
-  .breadcrumb .breadcrumb-item::before {
-    color: #899bbd;
-  }
-  .breadcrumb-item.active a {
-    color:#f46138;
-  }
-
-  .breadcrumb .active {
-    color: #f46138;
-    font-weight: 600;
-  }
-  #content2 {
-    display: none;
-  }
-  .form-check-input:checked {
-    background-color:#f46138;
-  }
-  .card {
-    position: relative;
-    display: flex;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .03);
-}
-  .card-header {
-    background-color:#FFFFCC;
-    color: #111111;
-    margin-bottom: 20px;
-    
-  }
-  .required-field::after {
-    content: "*";
-    color: red;
-  }
-  .form-group {
-    margin-bottom: 20px; /* Khoảng cách dưới giữa các hộp chọn */
-  }
- .btnthem{
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
   color: #f46138;
-  border: 1px solid #f46138 ;
+  font-weight: 600;
+}
+
+.breadcrumb a {
+  color: #899bbd;
+  transition: 0.3s;
+}
+.breadcrumb a:hover{
+  color: #f46138;
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+  color: #f46138;
+}
+.breadcrumb .breadcrumb-item::before {
+  color: #899bbd;
+}
+.breadcrumb-item.active a {
+  color:#f46138;
+}
+
+.breadcrumb .active {
+  color: #f46138;
+  font-weight: 600;
+}
+#content2 {
+  display: none;
+}
+.form-check-input:checked {
+  background-color:#f46138;
+}
+.card {
+  position: relative;
+  display: flex;
   background-color: #fff;
-  height: 40px;
+  border: 1px solid rgba(0, 0, 0, .03);
+}
+.card-header {
+  background-color:#FFFFCC;
+  color: #111111;
+  margin-bottom: 20px;
+  
+}
+.required-field::after {
+  content: "*";
+  color: red;
+}
+.form-group {
+  margin-bottom: 20px; /* Khoảng cách dưới giữa các hộp chọn */
+}
+.btnthem{
+color: #f46138;
+border: 1px solid #f46138 ;
+background-color: #fff;
+height: 40px;
 }
 .btnthem:hover{
-  background-color: #f46138;
-  color: #fff;
+background-color: #f46138;
+color: #fff;
 }
+#imageContainer {
+margin-left: 20px;
+width: 50px;
+height: 50px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-gap: 10px;
+}
+
+#imageContainer img {
+width: 50px;
+height: 50px;
+object-fit: cover;
+}
+
 .luunhap{
-  background-color:#899bbd;
-  color: #fff;
-  height: 40px;
-  margin-left: 20px;
+background-color:#899bbd;
+color: #fff;
+height: 40px;
+margin-left: 20px;
 }
 .cod{
-  font-size: 12px;
+font-size: 12px;
 }
 .boder-cuoi{
-  border: 1px solid #ced4da;
-  height: 70px;
-  padding-top: 10px;
-  background-color:#FFFFCC;
+border: 1px solid #ced4da;
+height: 70px;
+padding-top: 10px;
+background-color:#FFFFCC;
 }
 .boder-cuoi p{
-  padding-top: 10px;
+padding-top: 10px;
 }

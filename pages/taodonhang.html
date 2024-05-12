@@ -247,12 +247,13 @@
                   <option value="17399946">Phạm Văn Quyết - 133 Lai Xá, Đ.Lai Xá, XÃ KIM CHUNG, HUYỆN HOÀI ĐỨC... - 0898701629</option>
                   <!-- Thêm các option khác nếu cần -->
                 </select>
-                <div class="invalid-feedback">Người gửi không được để trống</div>
+                <div id="errorMessage12" class="text-danger"></div>
               </div>
               
               <div class="form-group">
                 <label for="pickupTime">Thời gian hẹn lấy:</label>
                 <input type="datetime-local" class="form-control" id="pickupTime" required>
+                <div id="errorMessage13" class="text-danger"></div>
               </div>
     
             </div>
@@ -374,17 +375,17 @@
                   <div class="row">
                     <div class="col-md-4">
                       <label for="soluong" class="required-field">Số lượng</label>
-                      <input type="text" class="form-control " id="soluong" required>
+                      <input type="number" class="form-control " id="soluong" required>
                       <div id="errorMessage8" class="text-danger"></div>
                     </div>
                     <div class="col-md-4">
                       <label for="trongluong" class="required-field">Trọng lượng(g)</label>
-                      <input type="text" class="form-control " id="trongluong" required>
+                      <input type="number" class="form-control " id="trongluong" required>
                       <div id="errorMessage9" class="text-danger"></div>
                     </div>
                     <div class="col-md-4">
                       <label for="giatri" class="required-field">Giá trị(VND)</label>
-                      <input type="text" class="form-control " id="giatri" required>
+                      <input type="number" class="form-control " id="giatri" required>
                       <div id="errorMessage10" class="text-danger"></div>
                     </div>
                   </div>
@@ -396,7 +397,8 @@
               </div>
               <div class="row ">
                 <div class=" d-flex align-items-center justify-content-center">
-                  <button class="btnthem rounded-top rounded-bottom">Thêm hàng hóa</button>
+                  <button class="btnthem rounded-top rounded-bottom" id="requestImage">Ảnh hàng</button>
+                  <div id="imageContainer"></div>
                 </div>
               </div>
               <div class="row">
@@ -437,13 +439,13 @@
               <div class="row">
                 <label for="kichthuoc" class="required-field">Kích thước</label>
                 <div class="col-md-4">
-                  <input type="text" class="form-control " id="kichthuoc" placeholder="Dài(cm)" required>
+                  <input type="number" class="form-control " id="kichthuoc" placeholder="Dài(cm)" required>
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control " id="kichthuoc" placeholder="Rộng(cm)" required>
+                  <input type="number" class="form-control " id="kichthuoc" placeholder="Rộng(cm)" required>
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control " id="kichthuoc" placeholder="Cao(cm)" required>
+                  <input type="number" class="form-control " id="kichthuoc" placeholder="Cao(cm)" required>
                 </div>
                 <div id="errorMessage11" class="text-danger"></div>
               </div>
@@ -452,13 +454,15 @@
           <div class="card">
             <div class="row">
               <div class="col-md-6 mt-3 mb-4 d-block fl">
-                <span class="vicc-title fw-bold p-3">TIỀN THU HỘ</span>
-                <br>
-                <a href="" class="cod p-3">Hình thức thanh toán tiền COD</a>
-                <input type="text" class="form-control p-3" id="kichthuoc" placeholder="0 đ" required>
-                <br>
-                <span class="vicc-title fw-bold p-3">GHI CHÚ</span>
-                <input type="text" class="form-control p-3" id="kichthuoc" placeholder="Nhập ghi chú" required>
+                <div class="mx-4">
+                  <span class="vicc-title fw-bold">TIỀN THU HỘ</span> 
+                  <br>
+                  <a href="" class="">Hình thức thanh toán tiền COD</a>
+                  <input type="number" class="form-control" id="tienThuHo" placeholder="0 đ" required>
+                  <br>
+                  <span class="vicc-title fw-bold">GHI CHÚ</span>
+                  <input type="text" class="form-control" id="kichthuoc" placeholder="Nhập ghi chú" required>
+                </div>
               </div>
               <div class="col-md-6 mt-3 mb-4">
                 <span class="vicc-title fw-bold">NGƯỜI TRẢ CƯỚC</span>
@@ -478,23 +482,74 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 boder-cuoi">
-          <p>Tổng cước: </p>
-        </div>
-        <div class="col-md-3 boder-cuoi">
-          <p>Tiền thu hộ:</p>
-        </div> 
-        <div class="col-md-3 boder-cuoi">
-          <p>Thời gian dự kiến: </p>
+        <div class="col-md-3 boder-cuoi d-flex">
+          <p>Tổng cước:</p>
+          <p id="cuoc" class="mx-3"></p>
         </div>
         <div class="col-md-3 boder-cuoi d-flex">
-          <div class=" d-flex align-items-center justify-content-center">
-            <button id="confirmBtn" class="btnthem rounded-top rounded-bottom">Gửi ngay</button>
-          </div>
-          <div class=" d-flex align-items-center justify-content-center">
-            <button id="" class="luunhap rounded-top rounded-bottom">Lưu nháp</button>
-          </div>
+          <p>Tiền thu hộ:</p>
+          <p id="tien" class="mx-3"></p>
+        </div> 
+        <div class="col-md-3 boder-cuoi d-flex">
+          <p>Thời gian dự kiến: </p>
+          <p id="thoiGianDuKien" class="mx-3"></p>
         </div>
+          <div class="col-md-3 boder-cuoi d-flex">
+            <div class=" d-flex align-items-center justify-content-center">
+              <button id="confirmBtn" class="btnthem rounded-top rounded-bottom">Gửi ngay</button>
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Đơn hàng đã được tiếp nhận</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      Vui lòng truy cập Quản lý để xem thông tin đơn hàng
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            <div class=" d-flex align-items-center justify-content-center">
+              <button id="confirmBtnNhap" class="luunhap rounded-top rounded-bottom">Lưu nháp</button>
+              <!-- The Modal -->
+              <div class="modal" id="myModal1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Đơn hàng đã được lưu</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      Vui lòng truy cập Quản lý để xem thông tin đơn hàng
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -519,5 +574,29 @@
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/taodon.js"></script>
+  <script>
+    $(document).ready(function() {
+        $("#requestImage").click(function() {
+            // Mở cửa sổ chọn tệp
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            $(input).change(function(event) {
+                var file = event.target.files[0];
+                // Xử lý tệp ảnh tại đây
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var imageSrc = e.target.result;
+                    // Hiển thị ảnh trong grid layout
+                    $('<img>').attr('src', imageSrc).appendTo('#imageContainer');
+                };
+                reader.readAsDataURL(file);
+            });
+            $(input).click();
+        });
+    });
+    </script>
+    
+    
 </body>
 </html>
