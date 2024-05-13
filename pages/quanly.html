@@ -71,7 +71,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
-            Bạn có 3 thông báo mới !!!
+            Bạn có 3  thông báo mới !!!
               <a href="#"><span class="badge rounded-pill bg-warning p-2 ms-2">Xem tất cả</span></a>
             </li>
             <li>
@@ -215,10 +215,10 @@
 
         <div class="quanly-menu pt-3">
           <div class="row mx-3">
-            <div class="col-lg-3 quanly-menu-items item1"><i class="bi bi-journal-text"></i> <span> Tổng số đơn</span></div>
-            <div class="col-lg-3 quanly-menu-items item2"><i class="bi bi-check2-circle"></i> <span> Giao thành công</span></div>
-            <div class="col-lg-3 quanly-menu-items item3"><i class="bi bi-truck"></i> <span> Đang vận chuyển</span></div>
-            <div class="col-lg-3 quanly-menu-items item4"><i class="bi bi-x-circle"></i> <span> Đã huỷ</span></div>
+            <div class="col-lg-3 quanly-menu-items item1 active1 icon1"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span> Tổng số đơn</span></div>
+            <div class="col-lg-3 quanly-menu-items item2 icon2"><i class="bi bi-check-circle-fill"></i> <span> Giao thành công</span></div>
+            <div class="col-lg-3 quanly-menu-items item3 icon3"><i class="bi bi-clock-fill"></i> <span> Đang vận chuyển</span></div>
+            <div class="col-lg-3 quanly-menu-items item4 icon4"><i class="bi bi-x-circle-fill"></i> <span> Đã huỷ</span></div>
           </div>
         </div>
         
@@ -227,12 +227,15 @@
 
           <div class="input-group quanly-search">
             <input type="text" class="form-control" id="input-search" placeholder="Tìm đơn hàng">
-            <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+            <button class="btn btnSearch" type="button"><i class="bi bi-search"></i></button>
           </div>
         </div>
 
         <div class="quanly-table table1 mx-3 pt-3">
-          <h4 class="pt-3" style="color: rgb(43, 121, 246);">Danh sách tất cả các đơn</h4>
+          <div class="d-flex align-items-center">
+            <div style="background-color: rgb(36, 116, 245); width: 20px; height: 20px; border-radius: 5px;"></div>
+            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách tất cả các đơn</div>
+          </div>
           <hr style="color: rgb(43, 121, 246);">
           <table class="table ">
             <thead>
@@ -301,7 +304,10 @@
         </div>
 
         <div class="quanly-table table2 mx-3 pt-3" style="display: none;">
-          <h4 class="pt-3" style="color: rgb(17, 165, 17);">Danh sách đơn hàng giao thành công</h4>
+          <div class="d-flex align-items-center">
+            <div style="background-color: rgb(17, 165, 17); width: 20px; height: 20px; border-radius: 5px;"></div>
+            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn giao thành công</div>
+          </div>
           <hr style="color: rgb(17, 165, 17);">
           <table class="table ">
             <thead>
@@ -341,7 +347,10 @@
         </div>
 
         <div class="quanly-table table3 mx-3 pt-3" style="display: none;">
-          <h4 class="pt-3" style="color: orange;">Danh sách đơn hàng đang vận chuyển</h4>
+          <div class="d-flex align-items-center">
+            <div style="background-color: orange; width: 20px; height: 20px; border-radius: 5px;"></div>
+            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn đang vận chuyển</div>
+          </div>
           <hr style="color: orange;">
           <table class="table ">
             <thead>
@@ -400,7 +409,10 @@
         </div>
 
         <div class="quanly-table table4 mx-3 pt-3" style="display: none;">
-          <h4 class="pt-3" style="color: red;">Danh sách đơn hàng đã huỷ</h4>
+          <div class="d-flex align-items-center">
+            <div style="background-color: rgb(247, 71, 71); width: 20px; height: 20px; border-radius: 5px;"></div>
+            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn đã huỷ</div>
+          </div>
           <hr style="color: red;">
           <table class="table ">
             <thead>
@@ -521,6 +533,11 @@
             $(".table2").hide(); 
             $(".table3").hide(); 
             $(".table4").hide(); 
+
+            $(".quanly-menu-items").removeClass("active1");
+
+            // Thêm lớp active1 vào mục được nhấp vào
+            $(this).addClass("active1");
         });
 
         // Bắt sự kiện khi người dùng nhấp vào li "Đổi mật khẩu"
@@ -530,6 +547,11 @@
             $(".table2").show(); 
             $(".table3").hide(); 
             $(".table4").hide(); 
+
+            $(".quanly-menu-items").removeClass("active1");
+
+            // Thêm lớp active1 vào mục được nhấp vào
+            $(this).addClass("active1");
         });
 
         $(".item3").click(function(event) {
@@ -538,6 +560,11 @@
             $(".table2").hide(); 
             $(".table3").show(); 
             $(".table4").hide(); 
+
+            $(".quanly-menu-items").removeClass("active1");
+
+            // Thêm lớp active1 vào mục được nhấp vào
+            $(this).addClass("active1");
         });
 
         $(".item4").click(function(event) {
@@ -546,13 +573,28 @@
             $(".table2").hide(); 
             $(".table3").hide(); 
             $(".table4").show(); 
+
+            $(".quanly-menu-items").removeClass("active1");
+
+            // Thêm lớp active1 vào mục được nhấp vào
+            $(this).addClass("active1");
         });
 
-      $("#input-search").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#table tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
+      $(".btnSearch").click(function() {
+        var value = $('#input-search').val().toLowerCase();
+          
+          $("#table tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+      });
+
+      $("#input-search").on('input', function() {
+          var value = $(this).val().toLowerCase(); 
+
+          if (value === "") {
+          
+              $("#table tr").show();
+          }
       });
 
       $(".btnExport").click(function () {

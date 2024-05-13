@@ -14,38 +14,57 @@
 }
 
 .quanly-menu-items {
-    padding: 30px;
-    background-color: rgba(0, 0, 0, .09);
-    border: 1px solid #ccc;
-    font-weight: 600;
+    padding: 25px;
+    background-color: #f8f8fa;
+    font-weight: 700;
     display: flex;
     align-items: center;
+
+}
+
+.quanly-menu-items {
+    border-right: 1px solid #ccc; 
+}
+
+.quanly-menu-items:last-child {
+    border-right: none; 
+}
+
+.quanly-menu-items:first-child {
+    border-left: none;
 }
 
 .quanly-menu-items i {
-    font-size: 30px;
+    font-size: 22px;
     margin-right: 5px;
 }
 
-.item1:hover {
-    color: rgb(54, 117, 252);
+.icon1.active1 .bi {
+    color: rgb(58, 170, 251); 
 }
 
-.item2:hover {
-    color: green;
+.icon2.active1 .bi {
+    color: green; 
 }
 
-.item3:hover {
-    color: orange;
+.icon3.active1 .bi {
+    color: orange; 
 }
 
-.item4:hover {
-    color: rgb(252, 54, 54);
+.icon4.active1 .bi {
+    color: red; 
 }
+
 
 .quanly-menu-items:hover {
-    background-color: #f9f7f7;
-    border-bottom: 3px solid #f46138;
+    cursor: pointer;
+}
+
+.active1 {
+    /* border-bottom: 3px solid #f46138;
+    background-color: #fff8f3; */
+    border-top: 3px solid red;
+    background-color: #fff5f7;
     cursor: pointer;
 }
 
@@ -73,10 +92,21 @@
     }
 
     .quanly-search {
-        width: auto;
+        width: 100%;
     }
 }
 
 .form-label {
     font-weight: 600;
+}
+
+.btnSearch {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btnSearch:hover {
+    border: 1px solid orange;
+    background-color: var(--primary-color);
+    color: white;
 }

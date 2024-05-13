@@ -39,11 +39,10 @@
     width: 100%;
     padding: 20px 10px;
     border-bottom: 1px solid #ccc;
+    font-weight: 600;
 }
 
 .caidat-left li:hover {
-    color: var(--primary-color);
-    background-color: #fbf3f1;
     cursor: pointer;
 }
 
@@ -54,4 +53,11 @@
 
 .form-right label {
     font-weight: 600;
+}
+
+.active {
+    color: var(--primary-color);
+    background-color: #fbf3f1;
+    cursor: pointer;
+    border-left: 3px solid var(--primary-color);
 }
