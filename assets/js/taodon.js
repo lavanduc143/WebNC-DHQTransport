@@ -36,7 +36,6 @@ $(document).ready(function(){
     }
     });
     $("#confirmBtn").click(function(event) {
-        $("#confirmBtn").click(function() {
             var isValid = true;
     
             // Kiểm tra trường Họ và tên
@@ -117,16 +116,72 @@ $(document).ready(function(){
             } else {
                 $("#errorMessage11").text("");
             }
+            if ($("#selectGroupAddress").val() === "") {
+                $("#errorMessage12").text("Không bỏ trống thông tin người gửi");
+                isValid = false;
+            } else {
+                $("#errorMessage12").text("");
+            }
+            if ($("#pickupTime").val() === "") {
+                $("#errorMessage13").text("Chọn thời gian");
+                isValid = false;
+            } else {
+                $("#errorMessage13").text("");
+            }
             
     
-            // Nếu dữ liệu hợp lệ, thực hiện hành động mong muốn ở đây
             if (isValid) {
-                // Thực hiện hành động sau khi xác nhận
-                alert("Dữ liệu hợp lệ, tiến hành xác nhận...");
+                $("#myModal").modal("show");
+              }
+              if (isValid) {
+                $("#myModal1").modal("show");
+              }
+
+            
+              // Ngăn chặn hành động mặc định của nút gửi form
+              event.preventDefault();
+
+    });
+    $(document).ready(function(){
+        $("#tienThuHo, #soluong, #trongluong, #giatri, #diadiem").on("input", function(){
+            var tienThuHo = parseFloat($("#tienThuHo").val()) || 0;
+            var sl = parseFloat($("#soluong").val()) || 0;
+            var tl = parseFloat($("#trongluong").val()) || 0;
+            var gt = parseFloat($("#giatri").val()) || 0;
+            var diadiem = $("#diadiem").val();
+            
+            var phicuoc;
+            if (tl <= 5000) {
+                phicuoc = 0;
+            } else {
+                phicuoc = 10000;
             }
+            
+            if (gt > 2000000) {
+                phicuoc += 10000;
+            }
+            
+            if (sl > 2) {
+                phicuoc += 5000;
+            }
+            
+            var ngayHienTai = new Date();
+            var ngayDuKien;
+            if (diadiem === "Hà Nội") {
+                ngayDuKien = new Date(ngayHienTai.getTime() + 1 * 24 * 60 * 60 * 1000); 
+            } else if (diadiem === "Đà Nẵng") {
+                ngayDuKien = new Date(ngayHienTai.getTime() + 2 * 24 * 60 * 60 * 1000); 
+            } else if (diadiem === "Hồ Chí Minh") {
+                ngayDuKien = new Date(ngayHienTai.getTime() + 3 * 24 * 60 * 60 * 1000); 
+            }
+    
+            $("#thoiGianDuKien").text(ngayDuKien.toLocaleDateString());
+            $("#cuoc").text(phicuoc +"đ");
+            $("#tien").text(tienThuHo +"đ");
         });
     });
-    // Xử lý sự kiện khi checkbox thay đổi trạng thái
+    
+    // Xử lý sự kiện khi checkbox thay đổi trạng tháis
     $('input[type="checkbox"]').change(function(){
         // Lấy tất cả các checkbox
         var checkboxes = $('input[name="checkboxloai"]');

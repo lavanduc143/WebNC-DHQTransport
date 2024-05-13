@@ -292,7 +292,7 @@
                 <div id="errorMessage3" class="text-danger"></div>
               </div>
               <div class="form-group">
-                <select class="form-control" id="province" required>
+                <select class="form-control" id="diadiem" required>
                   <option value="">Chọn tỉnh/thành phố</option>
                   <option value="Hà Nội">Hà Nội</option>
                   <option value="Hồ Chí Minh">Hồ Chí Minh</option>
@@ -465,17 +465,19 @@
                 </div>
               </div>
               <div class="col-md-6 mt-3 mb-4">
-                <span class="vicc-title fw-bold">NGƯỜI TRẢ CƯỚC</span>
+                <div class="mx-4">
+                  <span class="vicc-title fw-bold">NGƯỜI TRẢ CƯỚC</span>
                   <div class="d-block chonloai">
                     <div class="form-check mt-3 col-sm-6">
                       <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio1" value="option1" checked>
-                      <label class="form-check-label" for="exampleRadio1">Người gửi</label>
+                      <label style="display: block; width: 100px;" class="form-check-label" for="exampleRadio1">Người gửi</label>
                     </div>
                     <div class="form-check mt-3 col-sm-6 ">
                       <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio2" value="option2">
-                      <label class="form-check-label" for="exampleRadio2">Người nhận</label>
+                      <label style="display: block; width: 100px;" class="form-check-label" for="exampleRadio2">Người nhận</label>
                     </div>
                   </div>
+                </div>
               </div>
             </div>
           </div>
@@ -494,62 +496,33 @@
           <p>Thời gian dự kiến: </p>
           <p id="thoiGianDuKien" class="mx-3"></p>
         </div>
-          <div class="col-md-3 boder-cuoi d-flex">
-            <div class=" d-flex align-items-center justify-content-center">
-              <button id="confirmBtn" class="btnthem rounded-top rounded-bottom">Gửi ngay</button>
-              <!-- The Modal -->
-              <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
+          <div class="col-md-3 boder-cuoi d-flex justify-content-center">
+              <button id="confirmBtn" class="btnthem rounded-top rounded-bottom mt-1">Gửi ngay</button>   
+        </div>
+      </div>
+    </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Đơn hàng đã được tiếp nhận</h4>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      Vui lòng truy cập Quản lý để xem thông tin đơn hàng
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            <div class=" d-flex align-items-center justify-content-center">
-              <button id="confirmBtnNhap" class="luunhap rounded-top rounded-bottom">Lưu nháp</button>
-              <!-- The Modal -->
-              <div class="modal" id="myModal1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Đơn hàng đã được lưu</h4>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      Vui lòng truy cập Quản lý để xem thông tin đơn hàng
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Đơn hàng đã được tiếp nhận</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            Vui lòng truy cập Quản lý để xem thông tin đơn hàng
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+          </div>
+
         </div>
       </div>
     </div>
