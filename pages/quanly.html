@@ -232,71 +232,117 @@
         </div>
 
         <div class="quanly-table table1 mx-3 pt-3">
-          <div class="d-flex align-items-center">
-            <div style="background-color: rgb(36, 116, 245); width: 20px; height: 20px; border-radius: 5px;"></div>
-            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách tất cả các đơn</div>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(36, 116, 245); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Tổng đơn(6)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(21, 177, 52); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Giao thành công(2)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 154, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đang giao(3)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(126, 131, 130); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Chờ xác nhận(1)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 36, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đã huỷ(1)</div>
+            </div>
           </div>
           <hr style="color: rgb(43, 121, 246);">
           <table class="table ">
             <thead>
               <tr>
-                <th>Thông tin người gửi</th>
-                <th>Họ tên người nhận</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ người nhận</th>
-                <th>Ngày gửi</th>
-                <th>Trạng Thái</th>
+                <th style="color: #5b5757;">MÃ VẬN ĐƠN</th>
+                <th style="color: #5b5757;">NGƯỜI GỬI</th>
+                <th style="color: #5b5757;">NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">SĐT NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">ĐỊA CHỈ</th>
+                <th style="color: #5b5757;">HÀNG HOÁ</th>
+                <th style="color: #5b5757;">TRẠNG THÁI</th>
+                <th style="color: #5b5757;">Ngày gửi</th>
+                <th style="color: #5b5757;">TỔNG CƯỚC</th>
               </tr>
             </thead>
             <tbody  id="table">
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá,  Hoài Đức, Hà Nội</td>
+                <td><span class="mauxanh">MD0001</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
                 <td>Lã Văn Đức</td>
                 <td>0901780640</td>
                 <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>30/04/2024</td>
-                <td><span class="border border-success text-success p-1">Giao thành công</span></td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Giao thành công</div></td>
+                <td>14/03/2024</td>
+                <td><span class="mauxanh">30.000đ</span></td>
               </tr>
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nguyễn Văn B</td>
+                <td><span class="mauxanh">MD0002</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Lê Văn C</td>
                 <td>0901780640</td>
-                <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>04/04/2024</td>
-                <td><span class="border border-warning text-warning p-1">Đang vận chuyển</span></td>
+                <td>Nam Từ liêm, Hà Nội</td>
+                <td>1xÁo thun</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>14/08/2024</td>
+                <td><span class="mauxanh">20.000đ</span></td>
               </tr>
 
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nguyễn Văn C</td>
-                <td>0901780640</td>
-                <td>Hai Bà Trưng, Hà Nội</td>
-                <td>04/04/2024</td>
-                <td><span class="border border-warning text-warning p-1">Đang vận chuyển</span></td>
+                <td><span class="mauxanh">MD0003</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Trần Văn Đ</td>
+                <td>0901780888</td>
+                <td>Cầu Giấy, Hà Nội</td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Giao thành công</div></td>
+                <td>14/04/2024</td>
+                <td><span class="mauxanh">30.000đ</span></td>
               </tr>
+
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nguyễn Văn B</td>
-                <td>0901780640</td>
+                <td><span class="mauxanh">MD0004</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Nguyễn Thị T</td>
+                <td>0901780999</td>
+                <td>Hà Đông, Hà Nội</td>
+                <td>1xTủ Lạnh</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>15/04/2024</td>
+                <td><span class="mauxanh">100.000đ</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="mauxanh">MD0005</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Phạm Thị H</td>
+                <td>0901780641</td>
                 <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>02/04/2024</td>
-                <td><span class="border border-danger text-danger p-1">Đã huỷ</span></td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Đã huỷ</div></td>
+                <td>10/05/2024</td>
+                <td><span class="mauxanh">67.000đ</span></td>
               </tr>
+
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Lê Rê An</td>
-                <td>0901780640</td>
-                <td>Ba Đình, Hà Nội</td>
-                <td>26/05/2024</td>
-                <td><span class="border border-warning text-warning p-1">Đang vận chuyển</span></td>
-              </tr>
-              <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nam Việt Nam</td>
-                <td>0901780640</td>
-                <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>11/03/2024</td>
-                <td><span class="border border-success text-success p-1">Giao thành công</span></td>
+                <td><span class="mauxanh">MD0006</span></td>
+                <td><b>Phạm Văn Quyết</b><br> 0912598734</td>
+                <td>Nguyễn Thị P</td>
+                <td>0901780666</td>
+                <td>Gia Lâm, Hà Nội</td>
+                <td>1xTivi</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>14/05/2024</td>
+                <td><span class="mauxanh">70.000đ</span></td>
               </tr>
               
             </tbody>
@@ -304,39 +350,73 @@
         </div>
 
         <div class="quanly-table table2 mx-3 pt-3" style="display: none;">
-          <div class="d-flex align-items-center">
-            <div style="background-color: rgb(17, 165, 17); width: 20px; height: 20px; border-radius: 5px;"></div>
-            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn giao thành công</div>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(36, 116, 245); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Tổng đơn(6)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(21, 177, 52); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Giao thành công(2)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 154, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đang giao(3)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(126, 131, 130); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Chờ xác nhận(1)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 36, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đã huỷ(1)</div>
+            </div>
           </div>
           <hr style="color: rgb(17, 165, 17);">
           <table class="table ">
             <thead>
               <tr>
-                <th>Thông tin người gửi</th>
-                <th>Họ tên người nhận</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ người nhận</th>
-                <th>Ngày gửi</th>
+                <th style="color: #5b5757;">MÃ VẬN ĐƠN</th>
+                <th style="color: #5b5757;">NGƯỜI GỬI</th>
+                <th style="color: #5b5757;">NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">SĐT NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">ĐỊA CHỈ</th>
+                <th style="color: #5b5757;">HÀNG HOÁ</th>
+                <th style="color: #5b5757;">TRẠNG THÁI</th>
+                <th style="color: #5b5757;">Ngày gửi</th>
+                <th style="color: #5b5757;">TỔNG CƯỚC</th>
                 <th>Xoá</th>
               </tr>
             </thead>
             <tbody  id="table">
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá,  Hoài Đức, Hà Nội</td>
+                <td><span class="mauxanh">MD0001</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
                 <td>Lã Văn Đức</td>
                 <td>0901780640</td>
                 <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>30/04/2024</td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Giao thành công</div></td>
+                <td>14/03/2024</td>
+                <td><span class="mauxanh">30.000đ</span></td>
                 <td>
                   <button class="btn btn-outline-danger xoa"><i class="bi bi-trash"></i></button>
                 </td>
               </tr>
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nam Việt Nam</td>
-                <td>0901780640</td>
-                <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>11/03/2024</td>
+                <td><span class="mauxanh">MD0003</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Trần Văn Đ</td>
+                <td>0901780888</td>
+                <td>Cầu Giấy, Hà Nội</td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Giao thành công</div></td>
+                <td>14/04/2024</td>
+                <td><span class="mauxanh">30.000đ</span></td>
                 <td>
                   <button class="btn btn-outline-danger xoa"><i class="bi bi-trash"></i></button>
                 </td>
@@ -347,30 +427,60 @@
         </div>
 
         <div class="quanly-table table3 mx-3 pt-3" style="display: none;">
-          <div class="d-flex align-items-center">
-            <div style="background-color: orange; width: 20px; height: 20px; border-radius: 5px;"></div>
-            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn đang vận chuyển</div>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(36, 116, 245); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Tổng đơn(6)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(21, 177, 52); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Giao thành công(2)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 154, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đang giao(3)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(126, 131, 130); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Chờ xác nhận(1)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 36, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đã huỷ(1)</div>
+            </div>
           </div>
           <hr style="color: orange;">
           <table class="table ">
             <thead>
               <tr>
-                <th>Thông tin người gửi</th>
-                <th>Họ tên người nhận</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ người nhận</th>
-                <th>Ngày gửi</th>
-                <th>Sửa thông tin</th>
-                <th>Huỷ Đơn</th>
+                <th style="color: #5b5757;">MÃ VẬN ĐƠN</th>
+                <th style="color: #5b5757;">NGƯỜI GỬI</th>
+                <th style="color: #5b5757;">NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">SĐT NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">ĐỊA CHỈ</th>
+                <th style="color: #5b5757;">HÀNG HOÁ</th>
+                <th style="color: #5b5757;">TRẠNG THÁI</th>
+                <th style="color: #5b5757;">Ngày gửi</th>
+                <th style="color: #5b5757;">TỔNG CƯỚC</th>
+                <th>Sửa</th>
+                <th>Xoá</th>
               </tr>
             </thead>
-            <tbody id="table">
+            <tbody  id="table">
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nguyễn Văn B</td>
+                <td><span class="mauxanh">MD0002</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Lê Văn C</td>
                 <td>0901780640</td>
-                <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>04/04/2024</td>
+                <td>Nam Từ liêm, Hà Nội</td>
+                <td>1xÁo thun</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>14/08/2024</td>
+                <td><span class="mauxanh">20.000đ</span></td>
                 <td>
                   <button class="btn btn-primary sua"><i class="bi bi-pencil-square"></i></button>
                 </td>
@@ -378,12 +488,17 @@
                   <button class="btn btn-danger xoa"><i class="bi bi-x-circle"></i></button>
                 </td>
               </tr>
+
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Nguyễn Văn C</td>
-                <td>0901780640</td>
-                <td>Hai Bà Trưng, Hà Nội</td>
-                <td>02/04/2024</td>
+                <td><span class="mauxanh">MD0004</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Nguyễn Thị T</td>
+                <td>0901780999</td>
+                <td>Hà Đông, Hà Nội</td>
+                <td>1xTủ Lạnh</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>15/04/2024</td>
+                <td><span class="mauxanh">100.000đ</span></td>
                 <td>
                   <button class="btn btn-primary sua"><i class="bi bi-pencil-square"></i></button>
                 </td>
@@ -391,12 +506,17 @@
                   <button class="btn btn-danger xoa"><i class="bi bi-x-circle"></i></button>
                 </td>
               </tr>
+
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Lê Rê An</td>
-                <td>0901780640</td>
-                <td>Ba Đình, Hà Nội</td>
-                <td>26/05/2024</td>
+                <td><span class="mauxanh">MD0006</span></td>
+                <td><b>Phạm Văn Quyết</b><br> 0912598734</td>
+                <td>Nguyễn Thị P</td>
+                <td>0901780666</td>
+                <td>Gia Lâm, Hà Nội</td>
+                <td>1xTivi</td>
+                <td><div class="trangthai">Đang vận chuyển</div></td>
+                <td>14/05/2024</td>
+                <td><span class="mauxanh">70.000đ</span></td>
                 <td>
                   <button class="btn btn-primary sua"><i class="bi bi-pencil-square"></i></button>
                 </td>
@@ -404,34 +524,65 @@
                   <button class="btn btn-danger xoa"><i class="bi bi-x-circle"></i></button>
                 </td>
               </tr>
+              
             </tbody>
           </table>
         </div>
 
         <div class="quanly-table table4 mx-3 pt-3" style="display: none;">
-          <div class="d-flex align-items-center">
-            <div style="background-color: rgb(247, 71, 71); width: 20px; height: 20px; border-radius: 5px;"></div>
-            <div class="mx-3" style="font-size: 20px; font-weight: 600;">Danh sách đơn đã huỷ</div>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(36, 116, 245); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Tổng đơn(6)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(21, 177, 52); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Giao thành công(2)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 154, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đang giao(3)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(126, 131, 130); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Chờ xác nhận(1)</div>
+            </div>
+
+            <div class="d-flex align-items-center mx-3">
+              <div style="background-color: rgb(245, 36, 36); width: 14px; height: 14px; border-radius: 4px;"></div>
+              <div class="mx-1" style="font-size: 13px; font-weight: 600;">Đã huỷ(1)</div>
+            </div>
           </div>
           <hr style="color: red;">
           <table class="table ">
             <thead>
               <tr>
-                <th>Thông tin người gửi</th>
-                <th>Họ tên người nhận</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ người nhận</th>
-                <th>Ngày gửi</th>
+                <th style="color: #5b5757;">MÃ VẬN ĐƠN</th>
+                <th style="color: #5b5757;">NGƯỜI GỬI</th>
+                <th style="color: #5b5757;">NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">SĐT NGƯỜI NHẬN</th>
+                <th style="color: #5b5757;">ĐỊA CHỈ</th>
+                <th style="color: #5b5757;">HÀNG HOÁ</th>
+                <th style="color: #5b5757;">TRẠNG THÁI</th>
+                <th style="color: #5b5757;">Ngày gửi</th>
+                <th style="color: #5b5757;">TỔNG CƯỚC</th>
                 <th>Xoá</th>
               </tr>
             </thead>
-            <tbody id="table table4">
+            <tbody  id="table">
               <tr>
-                <td>Phạm Văn Quyết <br> 113 Lai xá, Hoài Đức, Hà Nội</td>
-                <td>Rô Nan Đô</td>
-                <td>0901780640</td>
+                <td><span class="mauxanh">MD0005</span></td>
+                <td><b>Phạm Văn Quyết</b> <br> 0912598734</td>
+                <td>Phạm Thị H</td>
+                <td>0901780641</td>
                 <td>Bắc Từ Liêm, Hà Nội</td>
-                <td>11/03/2024</td>
+                <td>1xTài liệu</td>
+                <td><div class="trangthai">Đã huỷ</div></td>
+                <td>10/05/2024</td>
+                <td><span class="mauxanh">67.000đ</span></td>
                 <td>
                   <button class="btn btn-outline-danger xoa"><i class="bi bi-trash"></i></button>
                 </td>
@@ -611,9 +762,9 @@
       //sửa
       $('.sua').click(function() {
         var rowEdit = $(this).closest('tr');
-        var name = rowEdit.find("td").eq(1).text();
-        var sdt = rowEdit.find("td").eq(2).text();
-        var diachi = rowEdit.find("td").eq(3).text();
+        var name = rowEdit.find("td").eq(2).text();
+        var sdt = rowEdit.find("td").eq(3).text();
+        var diachi = rowEdit.find("td").eq(4).text();
 
         $('#nguoinhan-name').val(name);
         $('#nguoinhan-sdt').val(sdt);
@@ -626,9 +777,9 @@
             var newSdt = $('#nguoinhan-sdt').val();
             var newDiachi = $('#nguoinhan-diachi').val();
 
-            rowEdit.find("td").eq(1).text(newName);
-            rowEdit.find("td").eq(2).text(newSdt);
-            rowEdit.find("td").eq(3).text(newDiachi);
+            rowEdit.find("td").eq(2).text(newName);
+            rowEdit.find("td").eq(3).text(newSdt);
+            rowEdit.find("td").eq(4).text(newDiachi);
 
             $('.editmodal').modal('hide');
         });
