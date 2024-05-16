@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Thông tin đơn hàng</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/Logo.png" rel="icon">
+  <link href="/assets/img/Logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/vendor/boxicons/css/boxicons.min.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.snow.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.bubble.css">
+  <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/taodon.css">
+
+
+  <style>
+    .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px;
+    font-size: 0.9rem;
+}
+
+.card-item {
+    margin-bottom: 10px;
+}
+
+.item-value {
+    margin-left: 10px;
+    float: right;
+}
+.modal-dialog {
+    max-width: 60%;
+}
+.modal-body {
+    text-align: center;
+}
+.modal-body img {
+    width: 100%;
+    height: auto;
+}
+#map img {
+    width: 100%;
+    height: 200px;
+    
+    background-size: cover;
+    background-position: center;
+    }
+  </style>
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="/assets/img/Logo.png" alt="">
+        <span class="d-none d-lg-block">DHQ Transport</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">3</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+            Bạn có 3  thông báo mới !!!
+              <a href="#"><span class="badge rounded-pill bg-warning p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Cảnh báo đăng nhập từ thiết bị khác</h4>
+                <p>Tải khoản DHQ Transport của bạn đã đăng nhập trên thiết bị di động vào lúc 10:26:20 07/05/2024.</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Trạng thái đơn hàng</h4>
+                <p>Giao hàng thành công</p>
+                <p>Người nhận hàng: Lã Văn Đức</p>
+                <p>2 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Còn voucher là còn tặng 😆</h4>
+                <p>Cần gửi hàng siêu tốc nội tỉnh, đừng quên Trùm Ship Nhanh với voucher VTPSIEUTOC - ưu đãi tới 30K shop nhé! 😘</p>
+                <p>4 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Hiện thị tất cả thông báo</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Phạm Văn Quyết</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Phạm Văn Quyết</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="caidat.html">
+                <i class="bi bi-person"></i>
+                <span>Cài đặt tài khoản</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid" ></i>
+          <span>Trang chủ</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="taodonhang.html">
+          <i class="bi bi-cart-plus-fill"></i>
+          <span>Tạo đơn hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="quanly.html">
+          <i class="bi bi-file-text " style="color: #f46138;"></i> <!-- Biểu tượng quản lý đơn hàng -->
+          <span>Quản lý</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="tracuu.html">
+          <i class="bi bi-geo-alt" ></i> <!-- Biểu tượng tra cứu vị trí -->
+          <span>Tra cứu</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="tienich.html">
+          <i class="bi bi-tools"></i> <!-- Biểu tượng tiện ích -->
+          <span>Tiện ích</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="hoidap.html">
+          <i class="bi bi-question-circle"></i>
+          <span>Hỏi đáp trợ giúp</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="caidat.html">
+          <i class="bi bi-person"></i>
+          <span>Cài đặt tài khoản</span>
+        </a>
+      </li>
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <main id="main" class="main">
+
+    <div class="row">
+        <div class="col-sm-6 d-flex">
+            <i class="fas fa-arrow-left fa-lg" style="color: #f46138; margin-right: 10px; padding-top: 10px;" onclick="window.location.href='quanly.html'"></i>
+            <h4>Thông tin đơn hàng</h4>
+        </div>
+        <div class="col-sm-6 d-flex">
+            <button class="btn rounded-bottom bg-warning btn-no-border mx-2"><i class="bi bi-pencil" style="margin-right: 10px;"></i>Sửa đơn</button>
+            <button class="btn rounded-bottom btn-no-border mx-2" style="background-color: #555555;color: #FFF;"><i class="bi bi-trash" style="margin-right: 10px;"></i>Hủy đơn</button>
+            <button class="btn rounded-bottom btn-no-border mx-2" style="background-color:#0379FC; color: #FFF;"><i class="bi bi-printer" style="margin-right: 10px;"></i>In đơn</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <span class="item-label">Mã vận đơn:</span>
+                        <span class="item-value" style="color: #f46138; font-weight: bold;">67776545</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Mã đơn hàng:</span>
+                        <span class="item-value">67776545</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Ngày tạo:</span>
+                        <span class="item-value" id="currentDate"></span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Ngày giao:</span>
+                        <span class="item-value" id="thoiGianDuKien"></span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Trạng thái:</span>
+                        <span class="item-value" style="color: #0379FC; font-weight: bold; font-size: 12px;">Đã tiếp nhận</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Dịch vụ:</span>
+                        <span class="item-value" style="font-weight: bold;font-size: 12px;">Chuyển phát nhanh</span>
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Người gửi</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Phạm Văn Quyết - 0898701629</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">133 Lai Xá, X.Kim Chung, H.Hoài Đức, TP.Hà Nội </span>
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Người nhận</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Lã Văn Đức - 0898701629</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">133 Lai Xá, X.Kim Chung, H.Hoài Đức, TP.Hà Nội </span>
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Phí và tiền thu hộ </span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Hình thức</span>
+                        <span class="item-value" style="font-weight: bold;">COD</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Phí vận chuyển</span>
+                        <span class="item-value" style="font-weight: bold; color: #f46138;">20.000đ</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Tiền thu hộ</span>
+                        <span class="item-value" style="font-weight: bold;">0đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Thông tin hàng hóa</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Tên hàng 1:</span>
+                        <span class="item-value">Sách</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Số lượng:</span>
+                        <span class="item-value">1</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Khối lượng:</span>
+                        <span class="item-value">500g</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Giá trị:</span>
+                        <span class="item-value">300.000đ</span>
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                    <div class="card-item">
+                        <span class="item-label">Tổng khối lượng:</span>
+                        <span class="item-value" style="color:#f46138; font-weight: bold;">500g</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Tổng giá trị:</span>
+                        <span class="item-value" style="font-weight: bold; color: #f46138;">300.000đ</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Loại hàng hóa:</span>
+                        <span class="item-value">Bưu kiện</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Tính chất hàng hóa đặc biệt:</span>
+                        <span class="item-value"></span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label">Kích thước</span>
+                        <span class="item-value">20x25x20 cm</span>
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Hình ảnh gửi hàng</span>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5">
+                        <img src="/assets/img/news-4.jpg" alt="Thumbnail" class="img-thumbnail w-50" id="thumbnail">
+                    </div>
+                    <div class="col border-top mb-3 mt-3"></div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold; color:#f46138">Hành trình đơn</span>
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Đang nhận hàng</span> 
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" id="currentDate1"></span>
+                        <span>Giao bưu cục nhận: Bưu cục Lai Xá - HNI - 485335363</span>
+                    </div>
+                    <br>
+                    <div class="card-item">
+                        <span class="item-label" style="font-weight: bold;">Tạo đơn hàng</span> 
+                    </div>
+                    <div class="card-item">
+                        <span class="item-label" id="currentDate2"></span>
+                        <span>Huyện Hoài Đức - Hà Nội</span>
+                    </div>
+                    <div id="map" ><img src="/assets/img/map.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="" alt="Full-size Image" id="fullImage">
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </main>
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/assets/vendor/quill/quill.js"></script>
+  <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/taodon.js"></script>
+  <script>
+    // Lấy thẻ p theo ID và cập nhật nội dung với ngày hiện tại
+    var currentDateElement = $("#currentDate");
+    var ngayDuKien = $("#thoiGianDuKien"); 
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+
+    currentDateElement.text(day + '/' + month + '/' + year);
+
+    var currentDateElement1 = $("#currentDate1");
+    var currentDate1 = new Date();
+    var day1 = currentDate1.getDate();
+    var month1 = currentDate1.getMonth() + 1;
+    var year1 = currentDate1.getFullYear();
+    var hours1 = currentDate1.getHours();
+    var minutes1 = currentDate1.getMinutes();
+    var seconds1 = currentDate1.getSeconds();
+
+    // Add leading zeros to hours, minutes, and seconds if they are less than 10
+    hours1 = hours1 < 10 ? '0' + hours1 : hours1;
+    minutes1 = minutes1 < 10 ? '0' + minutes1 : minutes1;
+    seconds1 = seconds1 < 10 ? '0' + seconds1 : seconds1;
+
+    currentDateElement1.text(day1 + '/' + month1 + '/' + year1 + ' ' + hours1 + ':' + minutes1 + ':' + seconds1);
+    var currentDateElement2 = $("#currentDate2");
+    var currentDate2 = new Date();
+    currentDate1.setMinutes(currentDate1.getMinutes() - 2);
+    var minutes2 = currentDate1.getMinutes();
+    minutes2 = minutes2 < 10 ? '0' + minutes2 : minutes2;
+    currentDateElement2.text(day1 + '/' + month1 + '/' + year1 + ' ' + hours1 + ':' + minutes2 + ':' + seconds1);
+    // Tạo một đối tượng Date mới và cộng thêm 1 vào ngày của nó
+    var ngayDuKienDate = new Date(currentDate.getTime() + 1 * 24 * 60 * 60 * 1000);
+    var ngayDuKienDay = ngayDuKienDate.getDate();
+    var ngayDuKienMonth = ngayDuKienDate.getMonth() + 1;
+    var ngayDuKienYear = ngayDuKienDate.getFullYear();
+
+    ngayDuKien.text(ngayDuKienDay + '/' + ngayDuKienMonth + '/' + ngayDuKienYear);
+    $('#thumbnail').on('click', function() {
+            const imgSrc = $(this).attr('src');
+            $('#fullImage').attr('src', imgSrc);
+            $('#imageModal').modal('show');
+        });
+    
+
+  </script>
+</body>
+</html>

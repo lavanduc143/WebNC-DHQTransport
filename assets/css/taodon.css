@@ -109,6 +109,20 @@ font-weight: 700;
     width: 100%;
   }
 }
+.btnxemdon{
+  color: #f46138;
+  border: 1px solid #f46138 ;
+  background-color: #fff;
+  height: 40px;
+  width: 150px;
+  }
+  .btnxemdon:hover{
+  background-color: #f46138;
+  color: #fff;
+  }
+.list-group-item{
+  display: flex;
+}
 
 
 
