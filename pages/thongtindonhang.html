@@ -43,13 +43,18 @@
 .card-item {
     margin-bottom: 10px;
 }
-
+.item-lable{
+  text-align: left;
+}
 .item-value {
     margin-left: 10px;
     float: right;
 }
 .modal-dialog {
     max-width: 60%;
+}
+.modal1 {
+    max-width: 40%;
 }
 .modal-body {
     text-align: center;
@@ -65,6 +70,7 @@
     background-size: cover;
     background-position: center;
     }
+
   </style>
 
 </head>
@@ -252,11 +258,12 @@
             <h4>Thông tin đơn hàng</h4>
         </div>
         <div class="col-sm-6 d-flex">
-            <button class="btn rounded-bottom bg-warning btn-no-border mx-2"><i class="bi bi-pencil" style="margin-right: 10px;"></i>Sửa đơn</button>
-            <button class="btn rounded-bottom btn-no-border mx-2" style="background-color: #555555;color: #FFF;"><i class="bi bi-trash" style="margin-right: 10px;"></i>Hủy đơn</button>
+            <button id="editButton" class="btn rounded-bottom bg-warning btn-no-border mx-2"><i class="bi bi-pencil" style="margin-right: 10px;"></i>Sửa đơn</button>
+            <button id="confirmCancelBtn" class="btn rounded-bottom btn-no-border mx-2" style="background-color: #555555;color: #FFF;"><i class="bi bi-trash" style="margin-right: 10px;"></i>Hủy đơn</button>
             <button class="btn rounded-bottom btn-no-border mx-2" style="background-color:#0379FC; color: #FFF;"><i class="bi bi-printer" style="margin-right: 10px;"></i>In đơn</button>
         </div>
     </div>
+
     <div class="row">
         <div class="col-sm-4 mt-4">
             <div class="card">
@@ -404,6 +411,7 @@
             </div>
         </div>
     </div>
+           <!-- Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -413,7 +421,143 @@
             </div>
         </div>
     </div>
-
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title " id="editModalLabel">Sửa thông tin đơn hàng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-header" style="height: 30px; display: flex; justify-content: center; align-items: center;">
+                <div class="card-item">
+                  <span class="item-label" style="font-weight: bold; color:#f46138">Người gửi</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-item">
+                  <span  class="item-label" >Họ tên:</span>
+                  <input class="item-value" type="text" value="Phạm Văn Quyết">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label" >Số ĐT:</span>
+                  <input class="item-value" type="text" id="sdt" name="sdt" value="0898701629">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label" >Địa chỉ:</span>
+                  <input class="item-value" type="text" value="133 Lai Xá, X.Kim Chung, H.Hoài Đức, TP.Hà Nội">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-header" style="height: 30px; display: flex; justify-content: center; align-items: center;">
+                <div class="card-item">
+                  <span class="item-label" style="font-weight: bold; color:#f46138">Người nhận</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-item">
+                  <span  class="item-label" for="name">Họ tên:</span>
+                  <input class="item-value" type="text" id="name" name="name" value="Phạm Văn Quyết">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label" for="name">Số ĐT:</span>
+                  <input class="item-value" type="text" id="sdt" name="sdt" value="0898701629">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label" for="name">Địa chỉ:</span>
+                  <input class="item-value" type="text" id="name" name="name" value="133 Lai Xá, X.Kim Chung, H.Hoài Đức, TP.Hà Nội">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header" style="height: 30px; display: flex; justify-content: center; align-items: center;">
+            <div class="card-item">
+              <span class="item-label" style="font-weight: bold; color:#f46138">Người nhận</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-item">
+                  <span  class="item-label" for="name">Tên hàng 1:</span>
+                  <input class="item-value" type="text" value="Sách">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label" for="name">Số lượng:</span>
+                  <input class="item-value" type="number" id="sdt" name="sdt" value="1">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-item">
+                  <span  class="item-label" >Giá trị:</span>
+                  <input class="item-value" type="text" value="300.000đ">
+                </div>
+                <div class="col border-top mb-3 mt-3"></div>
+                <div class="card-item">
+                  <span  class="item-label">Kích thước:</span>
+                  <input class="item-value" type="text" value="20x25x20cm">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button id="saveButton" type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Modal -->
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal1">
+      <div class="modal-content">
+          <div class="modal-header" style="background-color:#99CCCC;">
+              <h5 class="modal-title" id="cancelOrderModalLabel">Lý do hủy đơn</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                      <label for="cancelReason">Chọn lý do hủy đơn</label>
+                      <select class="form-control" id="cancelReason">
+                          <option value="">-- Chọn lý do --</option>
+                          <option value="Thay đổi ý định">Thay đổi ý định</option>
+                          <option value="Tìm thấy giá tốt hơn">Tìm thấy giá tốt hơn</option>
+                          <option value="Lý do khác">Lý do khác</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="otherReason">Lý do khác (nếu có)</label>
+                      <input type="text" class="form-control" id="otherReason" placeholder="Nhập lý do khác">
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button id="huyButton" type="button" class="btn btn-primary">Xác nhận hủy </button>
+          </div>
+      </div>
+  </div>
+</div>
   </main>
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -473,8 +617,40 @@
             $('#fullImage').attr('src', imgSrc);
             $('#imageModal').modal('show');
         });
-    
+    $("#editButton").click(function(){
+      $("#editModal").modal('show');
+    });
+    $("#saveButton").click(function() {
+        // Hiển thị thông báo
+        alert("Lưu thành công!");
+        hideModal();
+    });
+    function hideModal() {
+        $('#editModal').modal('hide');
+    }
+    $("#confirmCancelBtn").click(function(){
+      $("#cancelOrderModal").modal('show');
+    });
+    $('#huyButton').click(function() {
+        var reason = $('#cancelReason').val();
+        var otherReason = $('#otherReason').val();
 
+        if(reason === "other" && otherReason.trim() === "") {
+            alert("Vui lòng nhập lý do khác.");
+        } else {
+            // Logic xử lý hủy đơn hàng
+            alert("Đơn hàng đã được hủy với lý do: " + (reason === "other" ? otherReason : reason));
+            $('#cancelOrderModal').modal('hide');
+        }
+    });
+    // Ẩn hoặc hiện trường lý do khác dựa trên lựa chọn
+    $('#huyButton').change(function() {
+        if($(this).val() === "other") {
+            $('#otherReason').prop('disabled', false).focus();
+        } else {
+            $('#otherReason').prop('disabled', true).val('');
+        }
+    });
   </script>
 </body>
 </html>
