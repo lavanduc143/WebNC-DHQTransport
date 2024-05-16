@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Map with jQuery</title>
+<style>
+    /* Đảm bảo rằng div chứa bản đồ có kích thước cụ thể */
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Import jQuery từ CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Import Google Maps API từ CDN -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<script>
+// Hàm khởi tạo bản đồ
+var map = L.map('map').setView([51.505, -0.09], 13); // Tọa độ và mức zoom mặc định
+
+// Thêm một lớp dựa trên dữ liệu từ OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+}).addTo(map);
+
+// Thêm một đánh dấu ở vị trí trung tâm
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
+</script>
+
+</body>
+</html>

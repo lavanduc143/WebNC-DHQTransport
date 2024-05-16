@@ -142,7 +142,6 @@ $(document).ready(function(){
               event.preventDefault();
 
     });
-    $(document).ready(function(){
         $("#tienThuHo, #soluong, #trongluong, #giatri, #diadiem").on("input", function(){
             var tienThuHo = parseFloat($("#tienThuHo").val()) || 0;
             var sl = parseFloat($("#soluong").val()) || 0;
@@ -179,7 +178,6 @@ $(document).ready(function(){
             $("#cuoc").text(phicuoc +"đ");
             $("#tien").text(tienThuHo +"đ");
         });
-    });
     
     // Xử lý sự kiện khi checkbox thay đổi trạng tháis
     $('input[type="checkbox"]').change(function(){
