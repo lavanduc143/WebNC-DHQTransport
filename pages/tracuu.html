@@ -28,7 +28,8 @@
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="/assets/css/tracuu.css">
+  <script src="/assets/js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -208,17 +209,24 @@
 
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
+    <h1 class="mx-3">Mạng lưới bưu cục</h1>
+    <div class="tracuu">
+      
+      <div class="row tracuu1">
+        <input class="search-address" placeholder="Nhập địa bưu cục cần tìm" type="text" name="" id="search">
+        <div class="tracuu-left col-lg-4">
+          
+        </div>
+  
+        <div class="tracuu-right col-lg-8 hover01">
+          <figure><img src="/assets/img/hoankiem.png" alt="" id="right-image"></figure>
+        </div>
+      </div>
+    </div>
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
   </main>
+
+
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -231,5 +239,85 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script>
+    const buucuc = [
+        {
+            name: 'Bưu cục Hoàn Kiếm - HNI',
+            address: '278 Bạch Đằng',
+            phone: '84+73346333',
+            local: 'Q.Hoàn Kiếm, TP.Hà Nội',
+            kc: '30m',
+            image: '/assets/img/hoankiem.png'
+        },
+        {
+            name: 'Bưu cục Mễ Trì Thượng - HNI',
+            address: 'Số 74, Đ.Miếu Đầm',
+            phone: '84+73346333',
+            local: 'Q.Nam Từ Liêm, TP.Hà Nội',
+            kc: '369m',
+            image: '/assets/img/metrithuong.png'
+        },
+        {
+            name: 'Bưu cục Lại Yên - HNI',
+            address: '147, Đường Lại Yên, Thôn 4, Xã Lại Yên, Huyện Hoài Đức, Hà Nội, Đ.Lại Yên',
+            phone: '84+73346333',
+            local: 'H.Hoài Đức, TP.Hà Nội',
+            kc: '700m',
+            image: '/assets/img/laiyen.png'
+        },
+        {
+            name: 'Bưu cục Nam Từ Liêm - HNI',
+            address: 'N2 Đại Lộ Thăng Long',
+            phone: '84+73346333',
+            local: 'Q.Nam Từ Liêm, TP.Hà Nội',
+            kc: '3.6km',
+            image: '/assets/img/namtuliem.png'
+        },
+        {
+            name: 'Bưu cục Mễ Trì - HNI',
+            address: 'Số 66, Đ.Mễ Trì Hạ',
+            phone: '84+73346333',
+            local: 'Q.Nam Từ Liêm, TP.Hà Nội',
+            kc: '2.7km',
+            image: '/assets/img/metri.png'
+        }
+    ];
+
+    $(document).ready(function() {
+        // Render giao diện
+        const htmlContent = buucuc.map((bc, index) => `
+            <div class="tracuu-left-address" data-index="${index}">
+                <span class="d-block pt-2">${bc.name}</span>
+                <div class="pt-2"><i class="bi bi-geo-alt"></i> ${bc.address}</div>
+                <div class="pt-2"><i class="bi bi-telephone"></i> Phone: ${bc.phone}</div>
+                <div class="pt-2"><i class="bi bi-tags"></i> ${bc.local}</div>
+                <div class="menu pt-3">
+                    <div><i class="bi bi-signpost"></i> Chỉ đường</div>
+                    <div>Khoảng cách: ${bc.kc}</div>
+                </div>
+            </div>
+        `).join('');
+
+        $('.tracuu-left').html(htmlContent);
+
+        // Search
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".tracuu-left-address").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+
+        // Change image
+        $(".tracuu-left").on("click", ".tracuu-left-address", function() {
+            var index = $(this).data("index");
+            buucuc.forEach((bc, i) => {
+                if (i === index) {
+                    $("#right-image").attr("src", bc.image);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

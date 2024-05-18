@@ -1,0 +1,89 @@
+:root{
+    --primary-color: #f46138;
+}
+
+.main h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.tracuu {
+    border: 1px solid #ccc;
+}
+
+.tracuu1 {
+    margin: 10px;
+}
+
+.tracuu-left {
+    background-color: white;
+    padding-right: 10px;
+    overflow-y: scroll;
+    height: 590px;
+}
+
+.tracuu-left-address {
+    font-size: 13px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tracuu-left-address:hover {
+    background-color: #ecebeb;
+    cursor: pointer;
+}
+
+.tracuu-left-address span {
+    font-size: 15px;
+    font-weight: 700;
+    
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tracuu-right {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.tracuu-right img {
+    width: 100%;
+    height: 590px;
+}
+
+.search-address {
+    border: none;
+    background-color: #f0eded;
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+.hover01 figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
+
+.hover01 figure:hover img {
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+figure {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	overflow: hidden;
+}
+figure:hover+span {
+	bottom: -36px;
+	opacity: 1;
+}
