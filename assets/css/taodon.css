@@ -1,3 +1,13 @@
+:root{
+  --primary-color: #f46138;
+}
+
+.main h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 20px;

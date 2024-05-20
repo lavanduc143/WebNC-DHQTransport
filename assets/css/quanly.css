@@ -128,6 +128,46 @@ table {
 
 .trangthai {
     font-size: 13px;
+    background-color: rgb(55, 130, 180);
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.trangthai-thanhcong {
+    font-size: 13px;
+    background-color: rgb(53, 162, 66);
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.trangthai-danggiao {
+    font-size: 13px;
+    background-color: rgb(231, 129, 70);
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.trangthai-choxacnhan {
+    font-size: 13px;
+    background-color: rgb(122, 118, 118);
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.trangthai-dahuy {
+    font-size: 13px;
     background-color: rgb(213, 68, 68);
     font-weight: 600;
     color: white;
@@ -135,5 +175,8 @@ table {
     border-radius: 8px;
     text-align: center;
 }
+
+
+
 
 
