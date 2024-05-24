@@ -26,9 +26,14 @@
   <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
   <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/js/jquery.min.js">
 
 
 </head>
@@ -209,33 +214,23 @@
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
     <div class="row">
-      <div class="col-6">
+      <div class="col-sm-6 ">
         <h3 class="title">Xin chào <strong>Phạm Văn Quyết</strong></h3>
       </div>
-      <div class="col-6 w-50">
-        <div class="input-group w-50">
-          <span class="input-group-text" id="inputGroupPrepend2">
-            <i class="fa-solid fa-calendar-days"></i>
-          </span>
-          <input
-            type="text"
-            class="form-control"
-            id="datetime"
-            name="datetime"
-            aria-describedby="inputGroupPrepend2"
-            required
-          />
-        </div>
+      <div class="col-sm-6 mt-4">
+        <input type="datetime-local" class="form-control" id="pickupTime" style="width: 250px;" required>
       </div>
     </div>
     <div class="row mt-3">
+      <h5><strong><i class="bi bi-currency-dollar"></i>
+        TIỀN HÀNG</strong></h5>
       <div class="col-4">
         <div class="card p-3">
           <div class="d-flex justify-content-between">
             <img src="/assets/img/business-and-finance.svg" />
             <div class="text-right">
               <div class="title">Đã trả tiền</div>
-              <h4 class="bold text-end">3</h4>
+              <h4 class="bold text-end">3.550.000đ</h4>
             </div>
           </div>
         </div>
@@ -246,7 +241,7 @@
             <img src="/assets/img/time-and-date.svg" />
             <div class="text-right">
               <div class="title">Chờ trả tiền</div>
-              <h4 class="bold text-end">3</h4>
+              <h4 class="bold text-end">1.334.000đ</h4>
             </div>
           </div>
         </div>
@@ -257,7 +252,7 @@
             <img src="/assets/img/summary.svg" />
             <div class="text-right">
               <div class="title">Chưa đối soát</div>
-              <h4 class="bold text-end">3đ</h4>
+              <h4 class="bold text-end">312.000đ</h4>
             </div>
           </div>
         </div>
@@ -265,7 +260,7 @@
     </div>
 
     <div class="row mt-3">
-      <div class="col-8">
+      <div class="col-sm-6">
         <div class="card form-group">
           <div class="card-header">
             <img src="/assets/img/thongkedonhang.svg" />
@@ -276,15 +271,39 @@
           </div>
         </div>
       </div>
-      <div class="col-4">
-        <div class="card form-group">
-          <div class="card-header">
-            <img src="/assets/img/top10.svg" />
-            <span>Top 10 sản lượng</span>
+      <div class="col-sm-6">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+        
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img style="width: 100%; height: 300px;" src="/assets/img/banner-vtp.jpg" alt="Los Angeles">
+            </div>
+        
+            <div class="item">
+              <img style="width: 100%; height: 300px;" src="/assets/img/0907_vtsale-02.png" alt="Chicago">
+            </div>
+          
+            <div class="item">
+              <img style="width: 100%; height: 300px;" src="/assets/img/dong-goi-hang-hoa.jpg" alt="New york">
+            </div>
           </div>
-          <div class="card-body">
-            <canvas id="tron"></canvas>
-          </div>
+        
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>
@@ -304,85 +323,57 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
-  <script>
-    const ctx = document.getElementById("myChart");
+  <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap-datepicker.min.js"></script>
+  <script src="/assets/js/jquery.min.js"></script>
   
-    // Dữ liệu số đơn hàng theo tháng (giả định)
-    const dataCompletedOrders = [1, 1, 3, 3, 3, 5, 5, 6, 10, 8, 8, 8];
-    const dataCancelledOrders = [0, 0, 0, 1, 1, 1, 2, 2, 4, 0, 1, 5]; // Dữ liệu số đơn hàng huỷ
-  
-    // Tên của các tháng
-    const months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-  
-    new Chart(ctx, {
-      type: "line", // Loại biểu đồ đường
-      data: {
-        labels: months, // Sử dụng số thay vì tên tháng làm nhãn trục x
-        datasets: [
-          {
-            label: "Số đơn hàng hoàn thành",
-            data: dataCompletedOrders, // Dữ liệu số đơn hàng hoàn thành
-            borderColor: "rgb(54, 162, 235)", // Màu viền của đường
-            fill: false, // Không tô màu bên trong vùng đường
-          },
-          {
-            label: "Số đơn hàng huỷ",
-            data: dataCancelledOrders, // Dữ liệu số đơn hàng huỷ
-            borderColor: "rgb(255, 99, 132)", // Màu viền của đường (đỏ)
-            fill: false, // Không tô màu bên trong vùng đường
-          },
-        ],
-      },
+<script>
+    // Dữ liệu biểu đồ (giả sử)
+    var data = {
+      labels: ["8", "9", "10","11", "12", "1", "2", "3", "4", "5", "6", "7"],
+      datasets: [
+        {
+          label: "Đơn giao thành công",
+          backgroundColor: "rgba(75,192,192,0.2)",
+          borderColor: "rgba(75,192,192,1)",
+          borderWidth: 1,
+          data: [5, 9, 8, 1, 6, 5, 4, 5, 7, 6, 5, 0]
+        },
+        {
+          label: "Đơn đã hoàn",
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          borderWidth: 1,
+          data: [2, 1, 0, 1, 2, 2, 0, 0, 0, 1, 0, 0]
+        }
+      ]
+    };
+
+    // Tạo biểu đồ
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
       options: {
         scales: {
-          x: {
-            title: {
+          yAxes: [{
+            scaleLabel: {
               display: true,
-              text: "Tháng", // Tên trục x
-              color: "black",
-              font: {
-                weight: "bold",
-              },
+              labelString: 'Số lượng đơn hàng'
             },
-          },
-          y: {
-            beginAtZero: true,
-            title: {
+            ticks: {
+              beginAtZero: true
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
               display: true,
-              text: "Số lượng đơn hàng", // Tên trục y
-              color: "black",
-              font: {
-                weight: "bold",
-              },
-            },
-          },
-        },
-      },
+              labelString: 'Tháng'
+            }
+          }]
+        }
+      }
     });
-  </script>
-  
-
-  <script>
-    const ctxs = document.getElementById("tron");
-
-    new Chart(ctxs, {
-      type: "doughnut",
-      data: {
-        labels: ["Red", "Blue", "Yellow"],
-        datasets: [
-          {
-            label: "My First Dataset",
-            data: [300, 50, 100],
-            backgroundColor: [
-              "rgb(255, 99, 132)",
-              "rgb(54, 162, 235)",
-              "rgb(255, 205, 86)",
-            ],
-            hoverOffset: 4,
-          },
-        ],
-      },
-    });
-  </script>
+</script>
 </body>
 </html>

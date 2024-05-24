@@ -70,8 +70,17 @@
     background-size: cover;
     background-position: center;
     }
-
-  </style>
+  #notification1{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+  }
+</style>
 
 </head>
 <body>
@@ -487,7 +496,7 @@
         <div class="card mt-3">
           <div class="card-header" style="height: 30px; display: flex; justify-content: center; align-items: center;">
             <div class="card-item">
-              <span class="item-label" style="font-weight: bold; color:#f46138">Người nhận</span>
+              <span class="item-label" style="font-weight: bold; color:#f46138">Thông tin hàng hóa</span>
             </div>
           </div>
           <div class="card-body">
@@ -525,7 +534,7 @@
     </div>
   </div>
 </div>
- 
+<div id="notification1"></div>
 <!-- Modal -->
 <div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
   <div class="modal-dialog modal1">
@@ -620,14 +629,10 @@
     $("#editButton").click(function(){
       $("#editModal").modal('show');
     });
-    $("#saveButton").click(function() {
-        // Hiển thị thông báo
-        alert("Lưu thành công!");
-        hideModal();
+    $("#saveButton").click(function(){
+      $("#editModal").modal('hide');
+      $("#notification1").fadeIn().text("Thông tin đơn hàng đã cập nhật!").delay(3000).fadeOut();
     });
-    function hideModal() {
-        $('#editModal').modal('hide');
-    }
     $("#confirmCancelBtn").click(function(){
       $("#cancelOrderModal").modal('show');
     });
@@ -640,6 +645,7 @@
         } else {
             // Logic xử lý hủy đơn hàng
             alert("Đơn hàng đã được hủy với lý do: " + (reason === "other" ? otherReason : reason));
+            $("#notification1").fadeIn().text("Đơn hàng đã được hủy!").delay(3000).fadeOut();
             $('#cancelOrderModal').modal('hide');
         }
     });
@@ -651,6 +657,7 @@
             $('#otherReason').prop('disabled', true).val('');
         }
     });
+    
   </script>
 </body>
 </html>
