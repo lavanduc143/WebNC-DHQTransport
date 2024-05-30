@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Quản lý kho hàng</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/Logo.png" rel="icon">
+  <link href="/assets/img/Logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/vendor/boxicons/css/boxicons.min.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.snow.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.bubble.css">
+  <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tracuu.css">
+  <script src="/assets/js/jquery.min.js"></script>
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="admin.html" class="logo d-flex align-items-center">
+        <img src="/assets/img/Logo.png" alt="">
+        <span class="d-none d-lg-block">DHQ Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <div class="chinhanh">
+        <i class="bi bi-geo-alt"></i>
+        <span >Chi nhánh: <strong>DHQ Transport Bắc Từ Liêm</strong></span>
+    </div>
+    </div><!-- End Logo -->
+<!--
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+-->
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">3</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+            Bạn có 3  thông báo mới !!!
+              <a href="#"><span class="badge rounded-pill bg-warning p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Cảnh báo đăng nhập từ thiết bị khác</h4>
+                <p>Tải khoản DHQ Transport của bạn đã đăng nhập trên thiết bị di động vào lúc 10:26:20 07/05/2024.</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Trạng thái đơn hàng</h4>
+                <p>Giao hàng thành công</p>
+                <p>Người nhận hàng: Lã Văn Đức</p>
+                <p>2 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Còn voucher là còn tặng 😆</h4>
+                <p>Cần gửi hàng siêu tốc nội tỉnh, đừng quên Trùm Ship Nhanh với voucher VTPSIEUTOC - ưu đãi tới 30K shop nhé! 😘</p>
+                <p>4 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Hiện thị tất cả thông báo</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Phạm Văn Quyết</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Phạm Văn Quyết</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="admin.html">
+          <i class="bi bi-grid" ></i>
+          <span>Trang chủ</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adquanlydonhang.html">
+          <i class="bi bi-card-list"></i>
+          <span>Quản lý đơn hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adxulydonhang.html">
+          <i class="bi bi-card-checklist"></i>
+          <span>Xử lý đơn hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="adquanlykho.html">
+          <i class="bi bi-house" style="color: #f46138;"></i> <!-- Biểu tượng quản lý đơn hàng -->
+          <span>Kho hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adxehang.html">
+          <i class="bi bi-truck" ></i> <!-- Biểu tượng tra cứu vị trí -->
+          <span>Xe hàng</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" href="tienich.html">
+          <i class="bi bi-tools"></i> 
+          <span>Tiện ích</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="hoidap.html">
+          <i class="bi bi-question-circle"></i>
+          <span>Hỏi đáp trợ giúp</span>
+        </a>
+      </li> -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <main id="main" class="main">
+    
+
+  </main>
+
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/assets/vendor/quill/quill.js"></script>
+  <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
