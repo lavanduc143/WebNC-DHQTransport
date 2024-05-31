@@ -230,7 +230,7 @@
     border-color: #ebeef4;
     background-color: #fff;
     color: #798eb3;
-    padding: 15px;
+    padding: 21px;
   }
   
   .card-title {
@@ -248,7 +248,7 @@
   }
   
   .card-body {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 50px 20px;
   }
   
   .card-img-overlay {
@@ -617,7 +617,7 @@
 @media (min-width: 1200px) {
 
   #main,
-  #footer {
+  .chantrang {
     margin-left: 300px;
   }
 }
@@ -1215,4 +1215,14 @@
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+
+.chantrang {
+  height: auto;
+  background-color: #f2f2f2; 
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
