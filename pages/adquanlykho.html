@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Quản lý kho hàng</title>
+  <title>Quản lí kho</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,9 +26,44 @@
   <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
 
   <!-- Template Main CSS File -->
-  <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tracuu.css">
+  
   <script src="/assets/js/jquery.min.js"></script>
+
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/toast.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/quanly.css" />
+
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    input.error {
+      border: 1px solid red;
+    }
+
+    select.error {
+      border: 1px solid red;
+    }
+
+    .tableheader-css th {
+      background-color: rgb(102, 171, 250);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: white;
+    }
+
+    @media (max-width: 599px) {
+      .btnExport {
+          margin-bottom: 0;
+      }
+
+      .quanly-search {
+        margin-top: 10px;
+      }
+    }
+  </style>
 
 </head>
 <body>
@@ -206,10 +240,211 @@
 
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
-    
+    <h1 class="mx-3">Quản lí kho hàng</h1>
+    <div class="quanly">
+      <div class="quanly-submenu mx-3 pt-5 d-flex">
+        <div>
+          <button class="btn btn-primary" id="addModal">
+            <i class="bi bi-file-earmark-arrow-down"></i> Thêm dữ liệu
+          </button>
+  
+          <button class="btn btn-success btnExport"><i class="bi bi-file-earmark-arrow-up"></i> Xuất exel</button>
+        </div>
+
+        <div class="input-group quanly-search">
+          <input type="text" class="form-control" id="input-search" placeholder="Nhập mã hoặc tên kho hàng" />
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="quanly-table table1 mx-3 pt-3">
+        <!-- <h4 class="pt-3 text-center" style="color: rgb(83, 160, 247); font-weight: 700;">
+          Danh sách tất cả hàng hóa
+        </h4> -->
+        <hr style="color: rgb(43, 121, 246)"/>
+        <table class="table table-striped">
+          <thead>
+            <tr class="tableheader-css">
+              <th width="10%">Mã kho hàng</th>
+              <th width="20%">Tên kho hàng</th>
+              <th width="20%">Địa chỉ</th>
+              <th width="10%">Diện tích</th>
+              <th width="10%">Sức chứa</th>
+              <th width="10%">Chức năng</th>
+            </tr>
+          </thead>
+          <tbody id="table">
+            <tr id="1">
+              <td>HNI001</td>
+              <td>Bưu cục Nam Từ Liêm</td>
+              <td>N2 Đại Lộ Thăng Long, Nam Từ Liêm, Hà Nội</td>
+              <td>200m&#178;</td>
+              <td>5 tấn</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="2">
+              <td>HNI002</td>
+              <td>Bưu cục Phùng Khoang</td>
+              <td>14lô10, Đ.Phùng Khoang, Nam Từ Liêm, Hà Nội</td>
+              <td>300m&#178;</td>
+              <td>10 tấn</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="3">
+              <td>HNI003</td>
+              <td>Bưu cục Trung Yên</td>
+              <td>Số 33 Ngõ 22, Đ.Mạc Thái Tổ, Cầu Giấy, Hà Nội</td>
+              <td>150m&#178;</td>
+              <td>10 tấn</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="4">
+              <td>HNI004</td>
+              <td>Bưu cục Giảng Võ</td>
+              <td>112-H2 Thành Công, Quận Ba Đình</td>
+              <td>180m&#178;</td>
+              <td>3 tấn</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="4">
+              <td>HNI005</td>
+              <td>Bưu cục Mỹ Đình - HNI</td>
+              <td>81, Đ.Thiên Hiền, Nam Từ Liêm. Hà Nội</td>
+              <td>250m&#178;</td>
+              <td>15 tấn</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-5 pb-5">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item "><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="title">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="form" name="form">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="ma" class="required-field">Mã kho hàng:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="ma" name="ma" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="name" class="required-field">Tên kho hàng:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="diachi" class="required-field">Địa chỉ:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="diachi" name="diachi">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="dientich" class="required-field">Diện tích:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="dientich" name="dientich">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="weight" class="required-field">Sức chứa:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="weight" name="weight">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" id="save">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
 
   </main>
 
+  <!-- Toast -->
+  
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/jquery.form.js"></script>
+  <script src="/assets/js//jquery.mockjax-1.5.3.js"></script>
+  <script src="/assets/js/jquery.simulate.js"></script>
+  <script src="/assets/js/jquery.validate.js"></script>
+  <script src="/assets/js/toast.js"></script>
 
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -223,5 +458,158 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+
+
+    <script>
+     $(document).ready(function () {
+        // Search
+        $("#input-search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#table tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+
+        // Thêm hàng hóa
+        $('#addModal').click(function () {
+            $('#title').text('Thêm kho hàng');
+            $('#save').text('Xác nhận').data('action', 'add');
+            $('#add').modal('show');
+            $('#form')[0].reset();
+        });
+
+        // Sửa hàng hóa
+        $(document).on('click', '.btnEdit', function () {
+            $('#title').text('Cập nhật kho hàng');
+            $('#save').text('Xác nhận').data('action', 'edit');
+            $('#add').modal('show');
+
+            // Lấy dòng chứa nút "Sửa" được click
+            var row = $(this).closest('tr');
+
+            // Lấy thông tin từ các ô trong dòng
+            var maKho = row.find('td:eq(0)').text();
+            var tenKho = row.find('td:eq(1)').text();
+            var diaChi = row.find('td:eq(2)').text();
+            var dienTich = row.find('td:eq(3)').text();
+            var sucChua = row.find('td:eq(4)').text();
+
+            // Điền thông tin vào modal hoặc form
+            $('input[name="ma"]').val(maKho);
+            $('input[name="name"]').val(tenKho);
+            $('input[name="diachi"]').val(diaChi);
+            $('input[name="dientich"]').val(dienTich);
+            $('input[name="weight"]').val(sucChua);
+
+            $('#save').data('row', row);
+        });
+
+        // Xóa hàng hóa
+        $(document).on('click', '.btnDelete', function () {
+            var row = $(this).closest('tr');
+            Swal.fire({
+                title: "Bạn chắc chắn muốn xóa?",
+                text: "Xóa không thể khôi phục !",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Có, Đồng ý!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    row.remove();
+                    Swal.fire({
+                        title: "Thành công!",
+                        text: "Bạn đã xóa thành công.",
+                        icon: "success"
+                    });
+                }
+            });
+        });
+
+        // Xử lý thêm/sửa hàng hóa khi nhấn nút "Xác nhận"
+        $('#form').validate({
+            onkeyup: true,
+            rules: {
+                name: "required",
+                ma: "required",
+                diachi: "required",
+                dientich: "required",
+                weight: "required",
+            },
+            messages: {
+                name: "Tên kho không được để trống",
+                ma: "Mã kho hàng không được để trống",
+                diachi: "Địa chỉ không được để trống",
+                dientich: "Diện tích không được để trống",
+                weight: "Sức chứa không được để trống",
+            },
+            submitHandler: function (form) {
+                var action = $('#save').data('action');
+                var ma = $('input[name="ma"]').val();
+                var name = $('input[name="name"]').val();
+                var diaChi = $('input[name="diachi"]').val();
+                var dienTich = $('input[name="dientich"]').val();
+                var weight = $('input[name="weight"]').val();
+
+                if (action === 'add') {
+                    // Thêm hàng hóa mới
+                    var newRow = `<tr>
+                                    <td>${ma}</td>
+                                    <td>${name}</td>
+                                    <td>${diaChi}</td>
+                                    <td>${dienTich}</td>
+                                    <td>${weight}</td>
+                                    <td>
+                                        <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                                        <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                  </tr>`;
+                    $('#table').append(newRow);
+                } else if (action === 'edit') {
+                    // Cập nhật hàng hóa
+                    var row = $('#save').data('row');
+                    row.find('td:eq(0)').text(ma);
+                    row.find('td:eq(1)').text(name);
+                    row.find('td:eq(2)').text(diaChi);
+                    row.find('td:eq(3)').text(dienTich);
+                    row.find('td:eq(4)').text(weight);
+                }
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+
+                Toast.fire({
+                    icon: "success",
+                    title: "Thành công!"
+                });
+
+                $('#add').modal('hide');
+                $('#form')[0].reset();
+            }
+        });
+
+        // Xuất excel
+        $(".btnExport").click(function () {
+            TableToExcel.convert($('.table')[0], {
+                name: `UserManagement.xlsx`,
+                sheet: {
+                    name: 'Usermanagement'
+                }
+            });
+        });
+    });
+
+    </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Xử lý đơn hàng</title>
+  <title>Quản lí hàng hoá</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -244,10 +244,10 @@
     <div class="quanly">
       <div class="quanly-submenu mx-3 pt-5 d-flex">
         <div>
-          <button class="btn btn-primary" id="addModal">
+          <!-- <button class="btn btn-primary" id="addModal">
             <i class="bi bi-file-earmark-arrow-down"></i> Thêm dữ liệu
           </button>
-  
+   -->
           <button class="btn btn-success btnExport"><i class="bi bi-file-earmark-arrow-up"></i> Xuất exel</button>
         </div>
 
@@ -267,12 +267,15 @@
         <table class="table table-striped">
           <thead>
             <tr class="tableheader-css">
-              <th width="10%">Mã hàng hóa</th>
+              <th>Mã hàng hóa</th>
               <th>Tên hàng hóa</th>
-              <th width="10%">Loại</th>
-              <th width="10%">Số lượng</th>
-              <th width="10%">Trọng lượng</th>
-              <th width="10%">Chức năng</th>
+              <th>Loại</th>
+              <th>Số lượng</th>
+              <th>Trọng lượng</th>
+              <th>Kho lưu trữ</th>
+              <th>Ngày nhập kho</th>
+              <th>Trạng thái</th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="table">
@@ -282,8 +285,11 @@
               <td>Cái</td>
               <td>2</td>
               <td>30g</td>
+              <td>Bưu cục Trung Yên</td>
+              <td>12/04/2024</td>
+              <td>Đang giao</td>
               <td>
-                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <!-- <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button> -->
                 <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
@@ -293,8 +299,11 @@
               <td>Mét</td>
               <td>40</td>
               <td>30kg</td>
+              <td>Bưu cục Cầu Giấy</td>
+              <td>08/03/2024</td>
+              <td>Đang giao</td>
               <td>
-                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <!-- <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button> -->
                 <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
@@ -304,8 +313,11 @@
               <td>Thùng</td>
               <td>40</td>
               <td>100kg</td>
+              <td>Bưu cục Cầu giấy</td>
+              <td>12/03/2024</td>
+              <td>Đang giao</td>
               <td>
-                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <!-- <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button> -->
                 <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
@@ -315,8 +327,11 @@
               <td>Cái</td>
               <td>10</td>
               <td>300kg</td>
+              <td>Bưu cục Bắc Từ Liêm</td>
+              <td>10/05/2024</td>
+              <td>Thành công</td>
               <td>
-                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <!-- <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button> -->
                 <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
@@ -326,8 +341,11 @@
               <td>Cái</td>
               <td>1</td>
               <td>15kg</td>
+              <td>Bưu cục Nam Từ Liêm</td>
+              <td>13/04/2024</td>
+              <td>Hoàn hàng</td>
               <td>
-                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <!-- <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button> -->
                 <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
@@ -519,7 +537,7 @@
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Có, Đòng ý!"
+                confirmButtonText: "Có, Đồng ý!"
             }).then((result) => {
                 if (result.isConfirmed) {
                     row.remove();
@@ -576,7 +594,7 @@
                                     <td>${soluong}</td>
                                     <td>${weight}</td>
                                     <td>
-                                        <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                                        // <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
                                         <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
                                     </td>
                                   </tr>`;
