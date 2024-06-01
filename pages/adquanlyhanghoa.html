@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Xử lý đơn hàng</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/Logo.png" rel="icon">
+  <link href="/assets/img/Logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/vendor/boxicons/css/boxicons.min.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.snow.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill.bubble.css">
+  <link rel="stylesheet" href="/assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="/assets/vendor/simple-datatables/style.css">
+
+  <!-- Template Main CSS File -->
+  
+  <script src="/assets/js/jquery.min.js"></script>
+
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/toast.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/quanly.css" />
+
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    input.error {
+      border: 1px solid red;
+    }
+
+    select.error {
+      border: 1px solid red;
+    }
+
+    .tableheader-css th {
+      background-color: rgb(102, 171, 250);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: white;
+    }
+
+    @media (max-width: 599px) {
+      .btnExport {
+          margin-bottom: 0;
+      }
+
+      .quanly-search {
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="admin.html" class="logo d-flex align-items-center">
+        <img src="/assets/img/Logo.png" alt="">
+        <span class="d-none d-lg-block">DHQ Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <div class="chinhanh">
+        <i class="bi bi-geo-alt"></i>
+        <span >Chi nhánh: <strong>DHQ Transport Bắc Từ Liêm</strong></span>
+    </div>
+    </div><!-- End Logo -->
+<!--
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+-->
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <!-- <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li>End Search Icon -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">3</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+            Bạn có 3  thông báo mới !!!
+              <a href="#"><span class="badge rounded-pill bg-warning p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Cảnh báo đăng nhập từ thiết bị khác</h4>
+                <p>Tải khoản DHQ Transport của bạn đã đăng nhập trên thiết bị di động vào lúc 10:26:20 07/05/2024.</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Trạng thái đơn hàng</h4>
+                <p>Giao hàng thành công</p>
+                <p>Người nhận hàng: Lã Văn Đức</p>
+                <p>2 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Còn voucher là còn tặng 😆</h4>
+                <p>Cần gửi hàng siêu tốc nội tỉnh, đừng quên Trùm Ship Nhanh với voucher VTPSIEUTOC - ưu đãi tới 30K shop nhé! 😘</p>
+                <p>4 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Hiện thị tất cả thông báo</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Phạm Văn Quyết</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Phạm Văn Quyết</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- <li class="nav-item">
+        <a class="nav-link " href="admin.html">
+          <i class="bi bi-grid" style="color: #f46138;"></i>
+          <span>Trang chủ</span>
+        </a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adxulydonhang.html">
+          <i class="bi bi-card-list"></i>
+          <span>Xử lí đơn hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="adquanlyhanghoa.html">
+          <i class="bi bi-card-checklist"></i>
+          <span>Quản lí hàng hoá</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adquanlykho.html">
+          <i class="bi bi-house"></i> <!-- Biểu tượng quản lý đơn hàng -->
+          <span>Kho hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adxehang.html">
+          <i class="bi bi-truck" ></i> <!-- Biểu tượng tra cứu vị trí -->
+          <span>Xe hàng</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adquanlytaikhoan.html">
+          <i class="bi bi-person-circle"></i> 
+          <span>Quản lí tài khoản</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" href="hoidap.html">
+          <i class="bi bi-question-circle"></i>
+          <span>Hỏi đáp trợ giúp</span>
+        </a>
+      </li> -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <main id="main" class="main">
+    <h1 class="mx-3">Quản lí hàng hóa</h1>
+    <div class="quanly">
+      <div class="quanly-submenu mx-3 pt-5 d-flex">
+        <div>
+          <button class="btn btn-primary" id="addModal">
+            <i class="bi bi-file-earmark-arrow-down"></i> Thêm dữ liệu
+          </button>
+  
+          <button class="btn btn-success btnExport"><i class="bi bi-file-earmark-arrow-up"></i> Xuất exel</button>
+        </div>
+
+        <div class="input-group quanly-search">
+          <input type="text" class="form-control" id="input-search" placeholder="Nhập mã hoặc tên hàng hóa" />
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="quanly-table table1 mx-3 pt-3">
+        <!-- <h4 class="pt-3 text-center" style="color: rgb(83, 160, 247); font-weight: 700;">
+          Danh sách tất cả hàng hóa
+        </h4> -->
+        <hr style="color: rgb(43, 121, 246)"/>
+        <table class="table table-striped">
+          <thead>
+            <tr class="tableheader-css">
+              <th width="10%">Mã hàng hóa</th>
+              <th>Tên hàng hóa</th>
+              <th width="10%">Loại</th>
+              <th width="10%">Số lượng</th>
+              <th width="10%">Trọng lượng</th>
+              <th width="10%">Chức năng</th>
+            </tr>
+          </thead>
+          <tbody id="table">
+            <tr id="1">
+              <td>HHS20024151</td>
+              <td>Điện thoại Iphone12</td>
+              <td>Cái</td>
+              <td>2</td>
+              <td>30g</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="2">
+              <td>HHS20054265</td>
+              <td>Dây cáp</td>
+              <td>Mét</td>
+              <td>40</td>
+              <td>30kg</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="3">
+              <td>HHS20054266</td>
+              <td>Khẩu trang</td>
+              <td>Thùng</td>
+              <td>40</td>
+              <td>100kg</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="4">
+              <td>HHS20054267</td>
+              <td>Ghế văn phòng</td>
+              <td>Cái</td>
+              <td>10</td>
+              <td>300kg</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            <tr id="4">
+              <td>HHS20054267</td>
+              <td>Tivi SamSung</td>
+              <td>Cái</td>
+              <td>1</td>
+              <td>15kg</td>
+              <td>
+                <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-5 pb-5">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item "><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="title">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="form" name="form">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="ma" class="required-field">Mã hàng hóa:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="ma" name="ma" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="name" class="required-field">Tên hàng hóa:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">Đơn vị:<span class="text-danger">*</span></label>
+                      <select class="form-select" id="donvi" name="donvi">
+                        <option value="">Chọn đơn vị</option>
+                        <option value="Cái">Cái</option>
+                        <option value="Mét">Mét</option>
+                        <option value="Lọ">Hộp</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="soluong" class="required-field">Số lượng:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="soluong" name="soluong">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="weight" class="required-field">Trọng lượng:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="weight" name="weight">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" id="save">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast -->
+  
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/jquery.form.js"></script>
+  <script src="/assets/js//jquery.mockjax-1.5.3.js"></script>
+  <script src="/assets/js/jquery.simulate.js"></script>
+  <script src="/assets/js/jquery.validate.js"></script>
+  <script src="/assets/js/toast.js"></script>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/assets/vendor/quill/quill.js"></script>
+  <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+
+
+    <script>
+     $(document).ready(function () {
+        // Search
+        $("#input-search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#table tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+
+        // Thêm hàng hóa
+        $('#addModal').click(function () {
+            $('#title').text('Thêm hàng hóa');
+            $('#save').text('Xác nhận').data('action', 'add');
+            $('#add').modal('show');
+            $('#form')[0].reset();
+        });
+
+        // Sửa hàng hóa
+        $(document).on('click', '.btnEdit', function () {
+            $('#title').text('Cập nhật hàng hóa');
+            $('#save').text('Xác nhận').data('action', 'edit');
+            $('#add').modal('show');
+
+            // Lấy dòng chứa nút "Sửa" được click
+            var row = $(this).closest('tr');
+
+            // Lấy thông tin từ các ô trong dòng
+            var maHangHoa = row.find('td:eq(0)').text();
+            var tenHangHoa = row.find('td:eq(1)').text();
+            var loai = row.find('td:eq(2)').text();
+            var soLuong = row.find('td:eq(3)').text();
+            var trongLuong = row.find('td:eq(4)').text();
+
+            // Điền thông tin vào modal hoặc form
+            $('input[name="ma"]').val(maHangHoa);
+            $('input[name="name"]').val(tenHangHoa);
+            $('#donvi').val(loai);
+            $('input[name="soluong"]').val(soLuong);
+            $('input[name="weight"]').val(trongLuong);
+
+            $('#save').data('row', row);
+        });
+
+        // Xóa hàng hóa
+        $(document).on('click', '.btnDelete', function () {
+            var row = $(this).closest('tr');
+            Swal.fire({
+                title: "Bạn chắc chắn muốn xóa?",
+                text: "Xóa không thể khôi phục !",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Có, Đòng ý!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    row.remove();
+                    Swal.fire({
+                        title: "Thành công!",
+                        text: "Bạn đã xóa thành công.",
+                        icon: "success"
+                    });
+                }
+            });
+        });
+
+        // Xử lý thêm/sửa hàng hóa khi nhấn nút "Xác nhận"
+        $('#form').validate({
+            onkeyup: true,
+            rules: {
+                name: "required",
+                ma: "required",
+                donvi: "required",
+                soluong: {
+                    "required": true,
+                    "number": true,
+                },
+                weight: {
+                    "required": true,
+                },
+            },
+            messages: {
+                name: "Tên hàng hóa không được để trống",
+                ma: "Mã hàng hóa không được để trống",
+                donvi: "Đơn vị không được để trống",
+                soluong: {
+                    required: "Số lượng không được để trống",
+                    number: "Số lượng phải là kiểu số"
+                },
+                weight: {
+                    required: "Trọng lượng không được để trống",
+                },
+            },
+            submitHandler: function (form) {
+                var action = $('#save').data('action');
+                var ma = $('input[name="ma"]').val();
+                var name = $('input[name="name"]').val();
+                var donvi = $('#donvi').val();
+                var soluong = $('input[name="soluong"]').val();
+                var weight = $('input[name="weight"]').val();
+
+                if (action === 'add') {
+                    // Thêm hàng hóa mới
+                    var newRow = `<tr>
+                                    <td>${ma}</td>
+                                    <td>${name}</td>
+                                    <td>${donvi}</td>
+                                    <td>${soluong}</td>
+                                    <td>${weight}</td>
+                                    <td>
+                                        <button class="btn btn-warning btnEdit btn-sm text-white"><i class="bi bi-pencil-square"></i></button>
+                                        <button class="btn btn-danger btn-sm btnDelete"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                  </tr>`;
+                    $('#table').append(newRow);
+                } else if (action === 'edit') {
+                    // Cập nhật hàng hóa
+                    var row = $('#save').data('row');
+                    row.find('td:eq(0)').text(ma);
+                    row.find('td:eq(1)').text(name);
+                    row.find('td:eq(2)').text(donvi);
+                    row.find('td:eq(3)').text(soluong);
+                    row.find('td:eq(4)').text(weight);
+                }
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+
+                Toast.fire({
+                    icon: "success",
+                    title: "Thành công!"
+                });
+
+                $('#add').modal('hide');
+                $('#form')[0].reset();
+            }
+        });
+
+        // Xuất excel
+        $(".btnExport").click(function () {
+            TableToExcel.convert($('.table')[0], {
+                name: `UserManagement.xlsx`,
+                sheet: {
+                    name: 'Usermanagement'
+                }
+            });
+        });
+    });
+
+    </script>
+</body>
+</html>
