@@ -1,0 +1,65 @@
+#scanner-container {
+    width: 200px; /* Chiều dài của vùng quét */
+    height: 50px; /* Chiều cao của vùng quét */
+    position: relative;
+    display: none; /* Ẩn vùng quét cho đến khi nhấn nút "Quét" */
+     /* Canh giữa màn hình */
+}
+#interactive.viewport {
+    position: relative;
+    padding-top: 20px;
+}
+#start-scan{
+    background-color: #f46138;
+    width: 150px;
+    height: 40px;
+    border: none;
+    color: #FFF;
+    border-radius: 10px;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.card-item {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.item-lable{
+  text-align: left;
+}
+.item-value {
+    margin-left: 5px;
+    float: right;
+}
+#btnduyet{
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(53, 162, 66);;
+    color: #FFF;
+}
+#btnkhongduyet{
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(213, 68, 68);
+    color: #FFF;
+}
+#notification{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+  }

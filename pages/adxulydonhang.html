@@ -29,7 +29,9 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tracuu.css">
+  <link rel="stylesheet" href="/assets/css/xulydonhang.css">
   <script src="/assets/js/jquery.min.js"></script>
+  
 
 </head>
 <body>
@@ -206,8 +208,154 @@
 
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
-    
-
+    <div class="row">
+      <div class="col-sm-6 ">
+        <h1 class="mx-3">ĐƠN HÀNG BC NHỔN</h1>
+      </div>
+      <div class="col-sm-6 mt-3">
+        <input type="datetime-local" class="form-control" id="pickupTime" style="width: 250px;" required>
+      </div>
+    </div>
+    <div class="row mt-3 mx-3 d-flex">
+      <div class="col-sm-4">
+        <div class="card p-3" style="background-color: rgb(58, 170, 251); color: #FFF;">
+          <div class="d-flex justify-content-between pt-2">
+            <i class="bi bi-journal-bookmark-fill " style="font-size: 20px;"></i>
+            <div class="title">Đã tiếp nhận</div>
+            <div class="text-right">
+              <h4 class="bold text-end">110</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card p-3" style="background-color: rgb(53, 162, 66); color: #FFF;">
+          <div class="d-flex justify-content-between pt-2">
+            <i class="bi bi-patch-check-fill" style="font-size: 20px;"></i>
+            <div class="title">Đã lấy hàng</div>
+            <div class="text-right">
+              <h4 class="bold text-end">302</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card p-3 " style="background-color:rgb(213, 68, 68); color: #FFF;">
+          <div class="d-flex justify-content-between pt-2">
+            <i class="bi bi-patch-exclamation-fill" style="font-size: 20px; "></i>
+            <div class="title">Không lấy hàng</div>
+            <div class="text-right">
+              <h4 class="bold text-end">8</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-4 pt-4" >
+        <div style="display: block; text-align: center;">
+          <button id="start-scan">Quét mã</button>
+        </div>
+        <div id="scanner-container">
+            <div id="interactive" class="viewport">
+              <video autoplay="true" preload="auto" src="" muted="true" playsinline="true" style="display: block; text-align: center; height: 150px;
+                width: auto;">
+            </video>
+            </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="height: 150px;">
+              <div class="card-item">
+                  <span class="item-label">Mã vận đơn:</span>
+                  <span class="item-value" style="color: #f46138; font-weight: bold;" id="madonhang"></span>
+              </div>
+              <div class="card-item">
+                  <span class="item-label">Mã đơn hàng:</span>
+                  <span class="item-value" id="mavandon"></span>
+              </div>
+              <div class="card-item">
+                  <span class="item-label">Người gửi:</span>
+                  <span class="item-value" id="nguoigui"></span>
+              </div>
+          </div>
+      </div>
+        
+      </div>
+      <div class="col-sm-8" >
+        <div class="card" >
+         <span style="display: block; text-align: center; font-size: 18px; color: #f46138; font-weight: bold;">Thông tin đơn hàng</span>
+          <div class="card-body" style="height: 187px;">
+            <div class="row">
+              <div class="col-6" >
+                <span style="display: block; text-align: center; font-weight: bold; margin-top: 10px;">Bưu cục</span>
+                <div class="card-item">
+                  <span class="item-label">Kích thước:</span>
+                  <span class="item-value1" id="kichthuoc"></span>
+                </div>
+                <div class="card-item">
+                  <span class="item-label">Trọng lượng:</span>
+                  <span class="item-value1" id="trongluong"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <span style="display: block; text-align: center;font-weight: bold; margin-top: 10px;">Phía khách hàng</span>
+                <div class="card-item">
+                  <span class="item-label">Kích thước:</span>
+                  <span class="item-value1" id="kichthuoc1"></span>
+                </div>
+                <div class="card-item">
+                  <span class="item-label">Trọng lượng:</span>
+                  <span class="item-value1" id="trongluong1"></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="card-item">
+                <span class="item-label">Thời gian xác nhận:</span>
+                <span class="item-value1" id="thoigiannhap"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="justify-content: center; text-align: center; margin: 10px;">
+      <button id="btnduyet" style="margin: 20px;">Duyệt đơn</button>
+      <div id="notification" class="notification">Đơn hàng đã xác nhận!</div>
+      <button id="btnkhongduyet">Không nhận hàng</button>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal1">
+      <div class="modal-content">
+          <div class="modal-header" style="background-color:#99CCCC;">
+              <h5 class="modal-title" id="cancelOrderModalLabel">Lý do không nhận hàng</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                      <label for="cancelReason">Chọn lý do trả đơn</label>
+                      <select class="form-control" id="cancelReason">
+                          <option value="">-- Chọn lý do --</option>
+                          <option value="Kích thước không phù hợp">Kích thước không phù hợp</option>
+                          <option value="Trọng lượng không phù hợp">Trọng lượng không phù hợp</option>
+                          <option value="Lý do khác">Lý do khác</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="otherReason">Lý do khác (nếu có)</label>
+                      <input type="text" class="form-control" id="otherReason" placeholder="Nhập lý do khác">
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button id="huyButton" type="button" class="btn btn-primary">Xác nhận trả </button>
+          </div>
+      </div>
+  </div>
+</div>
   </main>
 
 
@@ -223,5 +371,129 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/quagga.min.js"></script>
+  <script>
+    function setCurrentDateTime() {
+        const input = document.getElementById('pickupTime');
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+
+        const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+        input.value = currentDateTime;
+    }
+
+    // Set the current date and time when the page loads
+    window.onload = setCurrentDateTime;
+</script>
+<script>
+  $(document).ready(function () {
+      function startScanner() {
+          Quagga.init({
+              inputStream: {
+                  name: "Live",
+                  type: "LiveStream",
+                  target: $('#interactive')[0], // Vùng chứa video feed
+                  constraints: {
+                      facingMode: "environment" // Sử dụng camera sau trên điện thoại
+                  }
+              },
+              decoder: {
+                  readers: [
+                      "code_128_reader",
+                      "ean_reader",
+                      "ean_8_reader",
+                      "code_39_reader",
+                      "code_39_vin_reader",
+                      "codabar_reader",
+                      "upc_reader",
+                      "upc_e_reader",
+                      "i2of5_reader"
+                  ]
+              },
+          }, function (err) {
+              if (err) {
+                  console.error(err);
+                  alert("Không thể khởi động QuaggaJS: " + err.message);
+                  return;
+              }
+              console.log("QuaggaJS khởi động thành công");
+              Quagga.start();
+          });
+
+          Quagga.onDetected(function (data) {
+              console.log("Mã vạch quét được:", data.codeResult.code);
+              let barcode = data.codeResult.code;
+              let time = new Date().toLocaleString();
+              let nguoiGui = "Lã Văn Đức - 0898701629";
+              let nguoiGuiElement = document.getElementById("nguoigui");
+              nguoiGuiElement.textContent = nguoiGui;
+              let kichthuoc = "22x25x20";
+              let kichThuoc = document.getElementById("kichthuoc");
+              kichThuoc.textContent = kichthuoc;
+              let kichthuoc1 = "20x25x20";
+              let kichThuoc1 = document.getElementById("kichthuoc1");
+              kichThuoc1.textContent = kichthuoc1;
+              let trongluong = "3.14kg";
+              let trongLuong = document.getElementById("trongluong");
+              trongLuong.textContent = trongluong;
+              let trongluong1 = "3kg";
+              let trongLuong1 = document.getElementById("trongluong1");
+              trongLuong1.textContent = trongluong1;
+              $('#madonhang').append(barcode);
+              $('#mavandon').append(barcode);
+              $('#thoigiannhap').append(time);
+              Quagga.stop();
+              $('#scanner-container').hide(); // Ẩn vùng quét
+          });
+      }
+
+      function handleScanner() {
+          if ($(window).width() > 768) {
+              // Màn hình lớn - sử dụng máy quét mã vạch
+              alert("Hãy sử dụng máy quét mã vạch để quét mã.");
+              // Xử lý nhập mã vạch từ máy quét như thông thường ở đây.
+          } else {
+              // Màn hình nhỏ - sử dụng camera
+              $('#scanner-container').show(); // Hiển thị vùng quét
+              startScanner();
+          }
+      }
+
+      $('#start-scan').on('click', handleScanner);
+  });
+</script>
+<script>
+  $(document).ready(function(){
+      $("#btnduyet").click(function(){
+          $(".notification").fadeIn().delay(3000).fadeOut(); // Hiển thị thông báo trong 3 giây
+          setTimeout(function() {
+            location.reload(); // Reload trang sau 3 giây
+        }, 2000);
+      });
+      $("#btnkhongduyet").click(function(){
+        $("#cancelOrderModal").modal('show');
+      });
+      $('#huyButton').click(function() {
+        var reason = $('#cancelReason').val();
+        var otherReason = $('#otherReason').val();
+
+        if(reason === "other" && otherReason.trim() === "") {
+            alert("Vui lòng nhập lý do khác.");
+        } else {
+            // Logic xử lý hủy đơn hàng
+            alert("Đơn hàng đã được hủy với lý do: " + (reason === "other" ? otherReason : reason));
+            $("#notification").fadeIn().text("Đơn hàng đã được hủy!").delay(3000).fadeOut();
+            $('#cancelOrderModal').modal('hide');
+            setTimeout(function() {
+            location.reload(); // Reload trang sau 3 giây
+            }, 2000);
+        }
+    });
+  });
+  </script>
 </body>
 </html>

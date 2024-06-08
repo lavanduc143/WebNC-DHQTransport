@@ -346,6 +346,24 @@
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
   <script>
+    function setCurrentDateTime() {
+        const input = document.getElementById('pickupTime');
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+
+        const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+        input.value = currentDateTime;
+    }
+
+    // Set the current date and time when the page loads
+    window.onload = setCurrentDateTime;
+</script>
+
+  <script>
     var data = {
       labels: ["8", "9", "10","11", "12", "1", "2", "3", "4", "5", "6", "7"],
       datasets: [
